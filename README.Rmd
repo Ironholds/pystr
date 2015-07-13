@@ -1,0 +1,343 @@
+```{r, echo=FALSE}
+library(pystr)
+```
+
+# pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr)
+
+A package for those of us who miss Python's string methods while we're working in R.
+```{r, eval=FALSE}
+devtools::install_github("nicolewhite/pystr")
+library(pystr)
+```
+
+## String Formatting
+
+Most importantly, `pystr` brings a port of Python's [str.format](https://docs.python.org/3/library/stdtypes.html#str.format) to R with `pystr_format`.
+
+### Indexed Parameters
+
+You can pass in parameters individually:
+```{r}
+pystr_format("Hello {1}, my name is {2}.", "World", "Nicole")
+```
+
+As a vector:
+```{r}
+params = c("World", "Nicole")
+pystr_format("Hello {1}, my name is {2}.", params)
+```
+
+Or as a list:
+```{r}
+params = list("World", "Nicole")
+pystr_format("Hello {1}, my name is {2}.", params)
+```
+
+### Named Parameters
+
+You can pass in named parameters individually:
+```{r}
+pystr_format("Hello {thing}, my name is {name}.", thing="World", name="Nicole")
+```
+
+As a named vector:
+```{r}
+params = c(thing="World", name="Nicole")
+pystr_format("Hello {thing}, my name is {name}.", params)
+```
+
+Or as a named list:
+```{r}
+params = list(thing="World", name="Nicole")
+pystr_format("Hello {thing}, my name is {name}.", params)
+```
+
+### Repeated Parameters
+
+Placeholders can be used more than once throughout a string:
+```{r}
+pystr_format("The name is {last}. {first} {last}.", last="Bond", first="James")
+```
+
+### Replacement Types
+
+Pass in characters and numbers:
+```{r}
+pystr_format("Hello {name}, you have {n} new notifications!", name="Nicole", n=3)
+```
+
+## Other Ported Methods
+
+### `pystr_capitalize`
+
+Port of [str.capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize).
+```{r}
+pystr_capitalize("ONCE UPON A TIME, ")
+```
+
+### `pystr_center`
+
+Port of [str.center](https://docs.python.org/3/library/stdtypes.html#str.center).
+```{r}
+pystr_center("center me", 15, "*")
+```
+
+### `pystr_count`
+
+Port of [str.count](https://docs.python.org/3/library/stdtypes.html#str.count).
+```{r}
+pystr_count("abcxyzabc123", "abc")
+```
+
+### `pystr_endswith`
+
+Port of [str.endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith).
+```{r}
+pystr_endswith("selfie.jpg", ".jpg")
+pystr_endswith("selfie.jpg", c(".jpg", ".png"))
+```
+
+### `pystr_find`
+
+Port of [str.find](https://docs.python.org/3/library/stdtypes.html#str.find).
+```{r}
+pystr_find("12345", "34")
+```
+
+### `pystr_index`
+
+Port of [str.index](https://docs.python.org/3/library/stdtypes.html#str.index).
+```{r}
+pystr_index("12345", "34")
+pystr_index("12345", "xy")
+```
+
+### `pystr_isalnum`
+
+Port of [str.isalnum](https://docs.python.org/3/library/stdtypes.html#str.isalnum).
+```{r}
+pystr_isalnum("abc123")
+pystr_isalnum("abc123!")
+```
+
+### `pystr_isalpha`
+
+Port of [str.isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha).
+```{r}
+pystr_isalpha("abc")
+pystr_isalpha("abc!")
+```
+
+### `pystr_islower`
+
+Port of [str.islower](https://docs.python.org/3/library/stdtypes.html#str.islower).
+```{r}
+pystr_islower("all lowercase!")
+pystr_islower("All lowercase?")
+```
+
+### `pystr_isnumeric`
+
+Port of [str.isnumeric](https://docs.python.org/3/library/stdtypes.html#str.isnumeric).
+```{r}
+pystr_isnumeric("123")
+pystr_isnumeric("123!")
+```
+
+### `pystr_isspace`
+
+Port of [str.isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace).
+```{r}
+pystr_isspace("   ")
+```
+
+### `pystr_istitle`
+
+Port of [str.istitle](https://docs.python.org/3/library/stdtypes.html#str.istitle).
+```{r}
+pystr_istitle("I Am A Title")
+pystr_istitle("I Am not A Title")
+```
+
+### `pystr_isupper`
+
+Port of [str.isupper](https://docs.python.org/3/library/stdtypes.html#str.isupper).
+```{r}
+pystr_isupper("HELLO!")
+```
+
+### `pystr_join`
+
+Port of [str.join](https://docs.python.org/3/library/stdtypes.html#str.join).
+```{r}
+pystr_join(c("A", "BB", "CCC"))
+pystr_join(c(1, 2, 3), "+")
+```
+
+### `pystr_ljust`
+
+Port of [str.ljust](https://docs.python.org/3/library/stdtypes.html#str.ljust).
+```{r}
+pystr_ljust("left", 10)
+pystr_ljust("left", 10, "*")
+```
+
+### `pystr_lower`
+
+Port of [str.lower](https://docs.python.org/3/library/stdtypes.html#str.lower).
+```{r}
+pystr_lower("LOWERCASE ME!")
+```
+
+### `pystr_lstrip`
+
+Port of [str.lstrip](https://docs.python.org/3/library/stdtypes.html#str.lstrip).
+```{r}
+pystr_lstrip("www.example.com", "w.")
+```
+
+### `pystr_maketrans`
+
+Port of [str.maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans).
+```{r}
+map = pystr_maketrans("abc", "123")
+pystr_translate("a blue cat", map)
+```
+
+### `pystr_partition`
+
+Port of [str.partition](https://docs.python.org/3/library/stdtypes.html#str.partition).
+```{r}
+pystr_partition("onetwothreeonetwothree", "two")
+```
+
+### `pystr_replace`
+
+Port of [str.replace](https://docs.python.org/3/library/stdtypes.html#str.replace).
+```{r}
+pystr_replace("mississippi", "ss", "X")
+pystr_replace("mississippi", "ss", "X", 1)
+```
+
+### `pystr_rfind`
+
+Port of [str.rfind](https://docs.python.org/3/library/stdtypes.html#str.rfind).
+```{r}
+pystr_rfind("abcxyzabc", "abc")
+```
+
+### `pystr_rindex`
+
+Port of [str.rindex](https://docs.python.org/3/library/stdtypes.html#str.rindex).
+```{r}
+pystr_rindex("abcdab", "ab")
+pystr_rindex("abcdab", "xy")
+```
+
+### `pystr_rjust`
+
+Port of [str.rjust](https://docs.python.org/3/library/stdtypes.html#str.rjust).
+```{r}
+pystr_rjust("right", 10)
+pystr_rjust("right", 10, "*")
+```
+
+### `pystr_rpartition`
+
+Port of [str.rpartition](https://docs.python.org/3/library/stdtypes.html#str.rpartition).
+```{r}
+pystr_rpartition("onetwothreeonetwothree", "two")
+```
+
+### `pystr_rsplit`
+
+Port of [str.rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit).
+```{r}
+pystr_rsplit("a--b--c", "--", 1)
+```
+
+### `pystr_rstrip`
+
+Port of [str.rstrip](https://docs.python.org/3/library/stdtypes.html#str.rstrip).
+```{r}
+pystr_rstrip("mississippi", "ipz")
+```
+
+### `pystr_split`
+
+Port of [str.split](https://docs.python.org/3/library/stdtypes.html#str.split).
+```{r}
+pystr_split("1+2+3+4", "+")
+pystr_split("1+2+3+4", "+", 1)
+```
+
+### `pystr_splitlines`
+
+Port of [str.splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines).
+```{r}
+pystr_splitlines("First\nSecond\nThird")
+```
+
+### `pystr_startswith`
+
+Port of [str.startswith](https://docs.python.org/3/library/stdtypes.html#str.startswith).
+```{r}
+pystr_startswith("http://www.example.com", "http://")
+pystr_startswith("http://www.example.com", c("http://", "https://"))
+```
+
+### `pystr_strip`
+
+Port of [str.strip]().
+```{r}
+pystr_strip("    very spacious    ")
+pystr_strip("www.example.com", "wcom.")
+```
+
+### `pystr_swapcase`
+
+Port of [str.swapcase](https://docs.python.org/3/library/stdtypes.html#str.swapcase).
+```{r}
+pystr_swapcase("Swap Me!")
+```
+
+### `pystr_title`
+
+Port of [str.title](https://docs.python.org/3/library/stdtypes.html#str.title).
+```{r}
+pystr_title("make me pretty")
+```
+
+### `pystr_translate`
+
+Port of [str.translate](https://docs.python.org/3/library/stdtypes.html#str.translate).
+```{r}
+map = pystr_maketrans("abc", "123")
+pystr_translate("a blue cat", map)
+```
+
+### `pystr_upper`
+
+Port of [str.upper](https://docs.python.org/3/library/stdtypes.html#str.upper).
+```{r}
+pystr_upper("uppercase me!")
+```
+
+### `pystr_zfill`
+
+Port of [str.zfill]().
+```{r}
+pystr_zfill("42", 5)
+pystr_zfill("-42", 5)
+```
+
+## Methods Not Ported (Yet)
+
+* [str.casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)
+* [str.encode](https://docs.python.org/3/library/stdtypes.html#str.encode)
+* [str.expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)
+* [str.format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)
+* [str.isdecimal](https://docs.python.org/3/library/stdtypes.html#str.isdecimal)
+* [str.isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)
+* [str.isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)
+* [str.isprintable](https://docs.python.org/3/library/stdtypes.html#str.isprintable)

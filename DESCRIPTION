@@ -1,0 +1,13 @@
+Package: pystr
+Type: Package
+Title: Python String Methods in R
+Version: 1.0.0
+Date: 2015-07-05
+Author: Nicole White
+URL: https://github.com/nicolewhite/pystr
+BugReports: https://github.com/nicolewhite/pystr/issues
+Description: String operations the Python way - a package for those of us who miss Python's string methods while we're working in R.
+Maintainer: Nicole White <nicole.m.white@outlook.com>
+License: MIT + file LICENSE
+LazyData: TRUE
+Suggests: testthat
