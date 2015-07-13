@@ -1,0 +1,5 @@
+language: r
+sudo: required
+r-packages:
+  - testthat
+script: make test
