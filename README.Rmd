@@ -54,7 +54,7 @@ pystr_format("Hello {thing}, my name is {name}.", params)
 
 ### Repeated Parameters
 
-Placeholders can be used more than once throughout a string:
+Parameters can be used more than once throughout a string:
 ```{r}
 pystr_format("The name is {last}. {first} {last}.", last="Bond", first="James")
 ```
