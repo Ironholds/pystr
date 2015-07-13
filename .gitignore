@@ -3,4 +3,4 @@
 .DS_Store
 *.tar.gz
 *.pdf
-
+.Rproj.user
