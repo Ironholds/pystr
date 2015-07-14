@@ -2,10 +2,11 @@
 
 # pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr)
 
-A package for those of us who miss Python's string methods while we're working in R.
+String operations the Python way: a package for those of us who miss Python's string methods while we're working in R.
+
 
 ```r
-devtools::install_github("nicolewhite/pystr")
+install.packages("pystr")
 library(pystr)
 ```
 
