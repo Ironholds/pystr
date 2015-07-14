@@ -18,14 +18,5 @@
 #'
 #' @export
 pystr_isnumeric <- function(str) {
-  for(i in 1:nchar(str)) {
-    letter = substr(str, i, i)
-    not_a_number = suppressWarnings(is.na(as.numeric(letter)))
-
-    if(not_a_number) {
-      return(FALSE)
-    }
-  }
-
-  return(TRUE)
+  return(pystr_isnumeric_(str))
 }

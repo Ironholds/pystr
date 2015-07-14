@@ -16,3 +16,14 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_isnumeric_
+std::vector < bool > pystr_isnumeric_(std::vector < std::string > strs);
+RcppExport SEXP pystr_pystr_isnumeric_(SEXP strsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    __result = Rcpp::wrap(pystr_isnumeric_(strs));
+    return __result;
+END_RCPP
+}
