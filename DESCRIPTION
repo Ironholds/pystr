@@ -11,3 +11,5 @@ Maintainer: Nicole White <nicole.m.white@outlook.com>
 License: MIT + file LICENSE
 LazyData: TRUE
 Suggests: testthat
+LinkingTo: Rcpp
+Imports: Rcpp
