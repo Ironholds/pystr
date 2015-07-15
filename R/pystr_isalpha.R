@@ -18,14 +18,5 @@
 #'
 #' @export
 pystr_isalpha <- function(str) {
-  str = tolower(str)
-
-  for(i in 1:nchar(str)) {
-    x = substr(str, i, i)
-    if(!(x %in% letters)) {
-      return(FALSE)
-    }
-  }
-
-  return(TRUE)
+  return(pystr_isalpha_(str))
 }

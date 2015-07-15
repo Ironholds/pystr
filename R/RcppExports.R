@@ -5,6 +5,14 @@ pystr_capitalize_ <- function(strs) {
     .Call('pystr_pystr_capitalize_', PACKAGE = 'pystr', strs)
 }
 
+pystr_isalnum_ <- function(strs) {
+    .Call('pystr_pystr_isalnum_', PACKAGE = 'pystr', strs)
+}
+
+pystr_isalpha_ <- function(strs) {
+    .Call('pystr_pystr_isalpha_', PACKAGE = 'pystr', strs)
+}
+
 pystr_isnumeric_ <- function(strs) {
     .Call('pystr_pystr_isnumeric_', PACKAGE = 'pystr', strs)
 }
