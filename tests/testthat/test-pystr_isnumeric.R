@@ -8,3 +8,8 @@ test_that("it returns true when all characters are numeric", {
 test_that("it returns false when not all characters are numeric", {
   expect_false(pystr_isnumeric("12a3"))
 })
+
+test_that("it works with a vector of strings", {
+  nums = c("123", "123a", "123!")
+  expect_equal(pystr_isnumeric(nums), c(TRUE, FALSE, FALSE))
+})
