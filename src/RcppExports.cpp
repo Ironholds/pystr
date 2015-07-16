@@ -16,6 +16,20 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_count_
+std::vector < int > pystr_count_(std::vector < std::string > strs, std::string sub, int start, int end);
+RcppExport SEXP pystr_pystr_count_(SEXP strsSEXP, SEXP subSEXP, SEXP startSEXP, SEXP endSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type sub(subSEXP);
+    Rcpp::traits::input_parameter< int >::type start(startSEXP);
+    Rcpp::traits::input_parameter< int >::type end(endSEXP);
+    __result = Rcpp::wrap(pystr_count_(strs, sub, start, end));
+    return __result;
+END_RCPP
+}
 // pystr_isnumeric_
 std::vector < bool > pystr_isnumeric_(std::vector < std::string > strs);
 RcppExport SEXP pystr_pystr_isnumeric_(SEXP strsSEXP) {

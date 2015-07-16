@@ -4,10 +4,10 @@
 \alias{pystr_count}
 \title{Count the occurrences of a substring.}
 \usage{
-pystr_count(str, sub, start = 1, end = nchar(str))
+pystr_count(str, sub, start = 1, end = max(nchar(str)))
 }
 \arguments{
-\item{str}{A string.}
+\item{str}{A character vector.}
 
 \item{sub}{A string.}
 
@@ -25,6 +25,7 @@ Return the number of non-overlapping occurrences of substring \code{sub} in the 
 pystr_count("ababab", "aba")
 pystr_count("abcxyzabc123", "abc")
 pystr_count("a--b--c", "--", 4)
+pystr_count(c("one", "two", "three"), "e")
 }
 \references{
 \url{https://docs.python.org/3/library/stdtypes.html#str.count}
