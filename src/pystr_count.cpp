@@ -13,12 +13,13 @@ int str_count(std::string str, std::string sub, int start, int end) {
   std::string str_ = str.substr(start, end - start + 1);
 
   int count = 0;
-  for (size_t offset = str_.find(sub);
-       offset != std::string::npos;
-       offset = str_.find(sub, offset + sub.length()))
-  {
+  size_t offset = str_.find(sub);
+
+  while (offset != std::string::npos) {
     ++count;
+    offset = str_.find(sub, offset + sub.length());
   }
+
   return count;
 }
 
