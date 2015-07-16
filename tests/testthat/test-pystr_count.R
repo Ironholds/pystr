@@ -17,7 +17,7 @@ test_that("it only counts things within the specified range", {
 })
 
 test_that("it returns 0 when asking for a range outside the string's range", {
-  count = pystr_count("ababab", 10, 15)
+  count = pystr_count("ababab", "ab", 10, 15)
   expect_equal(count, 0)
 })
 
@@ -33,6 +33,10 @@ test_that("it counts substrings at the end", {
   expect_equal(pystr_count("a--b--", "--"), 2)
 })
 
-test_that("it counds empty strings", {
+test_that("it counts empty strings", {
   expect_equal(pystr_count("hi", ""), 3)
+})
+
+test_that("it works with a vector of strings", {
+  expect_equal(pystr_count(c("one", "two", "three"), "e"), c(1, 0, 2))
 })
