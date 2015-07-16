@@ -7,7 +7,7 @@
 pystr_isalpha(str)
 }
 \arguments{
-\item{str}{A string.}
+\item{str}{A string or character vector.}
 }
 \value{
 \code{TRUE} or \code{FALSE}
@@ -20,6 +20,7 @@ Return \code{TRUE} if all characters in the string are alphabetic and there is a
 pystr_isalpha("abc")
 pystr_isalpha("abc123")
 pystr_isalpha("abc!")
+pystr_isalpha(c("one", "2", "three!"))
 }
 \references{
 \url{https://docs.python.org/3/library/stdtypes.html#str.isalpha}
