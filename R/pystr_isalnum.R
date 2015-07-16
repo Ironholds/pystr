@@ -18,12 +18,5 @@
 #'
 #' @export
 pystr_isalnum <- function(str) {
-  for(i in 1:nchar(str)) {
-    letter = substr(str, i, i)
-    if(!(pystr_isalpha(letter) || pystr_isnumeric(letter))) {
-      return(FALSE)
-    }
-  }
-
-  return(TRUE)
+  return(pystr_isalnum_(str))
 }
