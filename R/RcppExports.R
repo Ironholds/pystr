@@ -9,6 +9,14 @@ pystr_count_ <- function(strs, sub, start, end) {
     .Call('pystr_pystr_count_', PACKAGE = 'pystr', strs, sub, start, end)
 }
 
+pystr_isalnum_ <- function(strs) {
+    .Call('pystr_pystr_isalnum_', PACKAGE = 'pystr', strs)
+}
+
+pystr_isalpha_ <- function(strs) {
+    .Call('pystr_pystr_isalpha_', PACKAGE = 'pystr', strs)
+}
+
 pystr_isnumeric_ <- function(strs) {
     .Call('pystr_pystr_isnumeric_', PACKAGE = 'pystr', strs)
 }

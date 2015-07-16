@@ -3,7 +3,7 @@
 #' Return \code{TRUE} if all characters in the string are alphanumeric and there is at
 #' least one character, \code{FALSE} otherwise.
 #'
-#' @param str A string.
+#' @param str A string or character vector.
 #'
 #' @return \code{TRUE} or \code{FALSE}.
 #'
@@ -15,15 +15,9 @@
 #' pystr_isalnum("abc")
 #' pystr_isalnum("abc123")
 #' pystr_isalnum("abc123!")
+#' pystr_isalnum(c("one", "2", "three!"))
 #'
 #' @export
 pystr_isalnum <- function(str) {
-  for(i in 1:nchar(str)) {
-    letter = substr(str, i, i)
-    if(!(pystr_isalpha(letter) || pystr_isnumeric(letter))) {
-      return(FALSE)
-    }
-  }
-
-  return(TRUE)
+  return(pystr_isalnum_(str))
 }

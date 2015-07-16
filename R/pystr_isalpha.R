@@ -3,7 +3,7 @@
 #' Return \code{TRUE} if all characters in the string are alphabetic and there is at least one character,
 #' \code{FALSE} otherwise.
 #'
-#' @param str A string.
+#' @param str A string or character vector.
 #'
 #' @return \code{TRUE} or \code{FALSE}
 #'
@@ -15,17 +15,9 @@
 #' pystr_isalpha("abc")
 #' pystr_isalpha("abc123")
 #' pystr_isalpha("abc!")
+#' pystr_isalpha(c("one", "2", "three!"))
 #'
 #' @export
 pystr_isalpha <- function(str) {
-  str = tolower(str)
-
-  for(i in 1:nchar(str)) {
-    x = substr(str, i, i)
-    if(!(x %in% letters)) {
-      return(FALSE)
-    }
-  }
-
-  return(TRUE)
+  return(pystr_isalpha_(str))
 }
