@@ -1,5 +1,8 @@
 language: r
 sudo: required
-r-packages:
-  - testthat
+r_github_packages:
+  - hadley/testthat
+  - jimhester/covr
 script: make test
+after_success:
+  - Rscript -e 'covr::coveralls()'
