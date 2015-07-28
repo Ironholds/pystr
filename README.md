@@ -1,6 +1,6 @@
 
 
-# pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr)
+# pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr) [![Coverage Status](https://coveralls.io/repos/nicolewhite/pystr/badge.svg?branch=master&service=github)](https://coveralls.io/github/nicolewhite/pystr?branch=master)
 
 String operations the Python way: a package for those of us who miss Python's string methods while we're working in R.
 
