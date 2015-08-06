@@ -8,10 +8,14 @@
 #' a copy of the string where each replacement field is replaced with the string value of the
 #' corresponding argument.
 #'
+#' If \code{...} is a single argument of a \code{data.frame}-like object, \code{pystr_format} will
+#' return an \code{nrow()}-length character vector using the column names of the data.frame for
+#' the named \code{\{placeholder\}}s.
+#'
 #' @param str A string.
 #' @param ... Parameter values. See details and examples
 #'
-#' @return A formatted string.
+#' @return A formatted character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.format}
 #'
@@ -35,11 +39,22 @@
 #' ## Placeholders can be used more than once
 #'
 #' pystr_format("The name is {last}. {first} {last}.", last="Bond", first="James")
-
+#'
+#' ## Pass in a whole data frame, matching by column names
+#'
+#' my_cars <- data.frame(car=rownames(mtcars), mtcars)
+#' head(pystr_format("The {car} gets {mpg} mpg (hwy) despite having {cyl} cylinders.", my_cars))
+#'
+#' supers <- data.frame(first=c("Bruce", "Hal", "Clark", "Diana"),
+#'                      last=c("Wayne", "Jordan", "Kent", "Prince"),
+#'                      is=c("Batman", "Green Lantern", "Superman", "Wonder Woman"))
+#' pystr_format("{first} {last} is really {is} but you shouldn't call them {first} in public.", supers)
+#'
 #' @export
 pystr_format <- function(str, ...) {
   args = list(...)
 
+  # if nothing was passed in besides 'str'
   if(length(args) == 0) {
     return(str)
   }
@@ -47,6 +62,29 @@ pystr_format <- function(str, ...) {
   params = args
 
   if(length(args) == 1) {
+
+    if (inherits(args[[1]], "data.frame")) {
+
+      # convert whatever else it may be besides a data.frame to a data.frame
+      # to avoid return type issues with tbl_'s and with= nonsense with data.table
+      df <- data.frame(args[[1]], stringsAsFactors=FALSE, check.names=FALSE)
+
+      pat <-  "\\{[[:alnum:]]+\\}"
+      looking_for <- gsub("[\\{\\}]", "", regmatches(str, gregexpr(pat, str))[[1]])
+      has <- colnames(df)
+      will_replace <- intersect(looking_for, has)
+      if (length(will_replace) > 0) {
+        sapply(1:nrow(df), function(i) {
+          res <- str
+          for(repl in will_replace) res <- gsub(sprintf("\\{%s\\}", repl), df[i, repl], res)
+          res
+        }) -> out
+        return(out)
+
+      }
+
+    }
+
     if(is.null(names(args))) {
       params = args[[1]]
     }

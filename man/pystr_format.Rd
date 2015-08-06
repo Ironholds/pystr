@@ -12,7 +12,7 @@ pystr_format(str, ...)
 \item{...}{Parameter values. See details and examples}
 }
 \value{
-A formatted string.
+A formatted character vector.
 }
 \description{
 Perform a string formatting operation.
@@ -23,6 +23,10 @@ literal text or replacement fields delimited by braces \code{\{\}}. Each replace
 either the numeric index of a positional argument, or the name of a keyword argument. Returns
 a copy of the string where each replacement field is replaced with the string value of the
 corresponding argument.
+
+If \code{...} as a single argument of a \code{data.frame}-like object, \code{pystr_format} will
+return an \code{nrow()}-length character vector using the column names of the data.frame for
+the named \code{\{placeholder\}}s.
 }
 \examples{
 # Numeric placeholders
@@ -44,6 +48,18 @@ pystr_format("Hello {name}, you have {n} new notifications!", name="Nicole", n=2
 ## Placeholders can be used more than once
 
 pystr_format("The name is {last}. {first} {last}.", last="Bond", first="James")
+
+## Pass in a whole data frame, matching by column
+
+my_cars <- data.frame(car=rownames(mtcars), mtcars)
+head(pystr_format("The {car} gets {mpg} mpg (hwy) despite having {cyl} cylinders.", my_cars))
+
+## perhaps a more practical example?
+
+supers <- data.frame(first=c("Bruce", "Hal", "Clark", "Diana"),
+                     last=c("Wayne", "Jordan", "Kent", "Prince"),
+                     is=c("Batman", "Green Lantern", "Superman", "Wonder Woman"))
+pystr_format("{first} {last} is really {is} but you shouldn't call them {first} in public.", supers)
 }
 \references{
 \url{https://docs.python.org/3/library/stdtypes.html#str.format}

@@ -119,3 +119,16 @@ test_that("It can format a single named parameter - named list arg", {
   expected = "Hello World."
   expect_equal(formatted, expected)
 })
+
+test_that("It works with data.frames", {
+  supers <- data.frame(first=c("Bruce", "Hal", "Clark", "Diana"),
+                       last=c("Wayne", "Jordan", "Kent", "Prince"),
+                       is=c("Batman", "Green Lantern", "Superman", "Wonder Woman"))
+
+  sentences = pystr_format("{first} {last} is really {is} but you shouldn't call them {first} in public.", supers)
+
+  expect_equal(sentences[1], "Bruce Wayne is really Batman but you shouldn't call them Bruce in public.")
+  expect_equal(sentences[2], "Hal Jordan is really Green Lantern but you shouldn't call them Hal in public.")
+  expect_equal(sentences[3], "Clark Kent is really Superman but you shouldn't call them Clark in public." )
+  expect_equal(sentences[4], "Diana Prince is really Wonder Woman but you shouldn't call them Diana in public.")
+})
