@@ -8,7 +8,7 @@
 #' a copy of the string where each replacement field is replaced with the string value of the
 #' corresponding argument.
 #'
-#' If \code{...} as a single argument of a \code{data.frame}-like object, \code{pystr_format} will
+#' If \code{...} is a single argument of a \code{data.frame}-like object, \code{pystr_format} will
 #' return an \code{nrow()}-length character vector using the column names of the data.frame for
 #' the named \code{\{placeholder\}}s.
 #'
@@ -40,12 +40,10 @@
 #'
 #' pystr_format("The name is {last}. {first} {last}.", last="Bond", first="James")
 #'
-#' ## Pass in a whole data frame, matching by column
+#' ## Pass in a whole data frame, matching by column names
 #'
 #' my_cars <- data.frame(car=rownames(mtcars), mtcars)
 #' head(pystr_format("The {car} gets {mpg} mpg (hwy) despite having {cyl} cylinders.", my_cars))
-#'
-#' ## perhaps a more practical example?
 #'
 #' supers <- data.frame(first=c("Bruce", "Hal", "Clark", "Diana"),
 #'                      last=c("Wayne", "Jordan", "Kent", "Prince"),
