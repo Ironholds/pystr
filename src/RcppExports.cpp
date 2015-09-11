@@ -16,6 +16,19 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_center_
+std::vector < std::string > pystr_center_(std::vector < std::string > strs, int width, char fillchar);
+RcppExport SEXP pystr_pystr_center_(SEXP strsSEXP, SEXP widthSEXP, SEXP fillcharSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< int >::type width(widthSEXP);
+    Rcpp::traits::input_parameter< char >::type fillchar(fillcharSEXP);
+    __result = Rcpp::wrap(pystr_center_(strs, width, fillchar));
+    return __result;
+END_RCPP
+}
 // pystr_count_
 std::vector < int > pystr_count_(std::vector < std::string > strs, std::string sub, int start, int end);
 RcppExport SEXP pystr_pystr_count_(SEXP strsSEXP, SEXP subSEXP, SEXP startSEXP, SEXP endSEXP) {

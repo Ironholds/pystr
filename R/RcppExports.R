@@ -5,6 +5,10 @@ pystr_capitalize_ <- function(strs) {
     .Call('pystr_pystr_capitalize_', PACKAGE = 'pystr', strs)
 }
 
+pystr_center_ <- function(strs, width, fillchar) {
+    .Call('pystr_pystr_center_', PACKAGE = 'pystr', strs, width, fillchar)
+}
+
 pystr_count_ <- function(strs, sub, start, end) {
     .Call('pystr_pystr_count_', PACKAGE = 'pystr', strs, sub, start, end)
 }
