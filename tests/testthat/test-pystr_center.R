@@ -30,3 +30,9 @@ test_that("spaced are maintained in the middle", {
   centered = pystr_center(original, 15, "*")
   expect_equal(centered, "**hello world**")
 })
+
+test_that("it works with character vectors", {
+  original = c("hello", "world")
+  centered = pystr_center(original, 7, "*")
+  expect_equal(centered, c("*hello*", "*world*"))
+})
