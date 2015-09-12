@@ -6,6 +6,10 @@ String operations the Python way: a package for those of us who miss Python's st
 
 ### From CRAN (Stable Release)
 
+## Install
+
+### From CRAN (Stable Release)
+
 
 ```r
 install.packages("pystr")
