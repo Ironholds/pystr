@@ -7,7 +7,7 @@
 pystr_center(str, width, fillchar = " ")
 }
 \arguments{
-\item{str}{A string.}
+\item{str}{A string or vector of strings.}
 
 \item{width}{An integer.}
 
