@@ -12,10 +12,10 @@
 #' return an \code{nrow()}-length character vector using the column names of the data.frame for
 #' the named \code{\{placeholder\}}s.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #' @param ... Parameter values. See details and examples
 #'
-#' @return A formatted character vector.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.format}
 #'
@@ -53,7 +53,10 @@
 #' @export
 pystr_format <- function(str, ...) {
   args = list(...)
+  return(sapply(str, function(x) pystr_format_(x, args), USE.NAMES = FALSE))
+}
 
+pystr_format_ <- function(str, args) {
   # if nothing was passed in besides 'str'
   if(length(args) == 0) {
     return(str)

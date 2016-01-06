@@ -3,11 +3,11 @@
 #' Return the number of non-overlapping occurrences of substring \code{sub} in the range \code{start, end}.
 #'
 #' @param str A character vector.
-#' @param sub A string.
+#' @param sub A character string.
 #' @param start An integer.
 #' @param end An integer.
 #'
-#' @return An integer.
+#' @return A numeric vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.count}
 #'

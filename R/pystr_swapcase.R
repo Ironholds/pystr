@@ -13,6 +13,10 @@
 #'
 #' @export
 pystr_swapcase <- function(str) {
+  return(vapply(str, pystr_swapcase_, character(1), USE.NAMES = FALSE))
+}
+
+pystr_swapcase_ <- function(str) {
   swapped = ""
 
   for(i in 1:nchar(str)) {

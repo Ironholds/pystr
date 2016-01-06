@@ -20,7 +20,11 @@
 #' pystr_find("abcxyzabc", "abc", 4)
 #'
 #' @export
-pystr_find <- function(str, sub, start=1, end=nchar(str)) {
+pystr_find <- function(str, sub, start=1, end=max(nchar(str))) {
+  return(vapply(str, function(x) pystr_find_(x, sub, start=start, end=end), numeric(1), USE.NAMES = FALSE))
+}
+
+pystr_find_ <- function(str, sub, start, end) {
   string_to_check = substr(str, start, end)
 
   for(i in 1:nchar(string_to_check)) {

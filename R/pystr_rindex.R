@@ -2,10 +2,10 @@
 #'
 #' Like \code{\link{pystr_rfind}} but raises an error if \code{sub} is not found.
 #'
-#' @param str A string.
-#' @param sub A string.
+#' @param str A character vector.
+#' @param sub A character string.
 #'
-#' @return An integer.
+#' @return A numeric vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.rindex}
 #'
@@ -21,7 +21,7 @@
 pystr_rindex <- function(str, sub) {
   idx = pystr_rfind(str, sub)
 
-  if(idx < 0) {
+  if(any(idx < 0)) {
     stop("ValueError")
   }
 

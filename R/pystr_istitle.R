@@ -4,9 +4,9 @@
 #' character, for example uppercase characters may only follow uncased characters and lowercase
 #' characters only cased ones. Return \code{FALSE} otherwise.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #'
-#' @return \code{TRUE} or \code{FALSE}
+#' @return A logical vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.istitle}
 #'
@@ -16,5 +16,5 @@
 #'
 #' @export
 pystr_istitle <- function(str) {
-  return(str == pystr_title(str))
+  return(vapply(str, function(x) x == pystr_title(x), logical(1), USE.NAMES = FALSE))
 }

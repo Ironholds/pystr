@@ -26,7 +26,11 @@
 #' pystr_startswith("http://example.com", list("http://", "https://"))
 #'
 #' @export
-pystr_startswith <- function(str, prefix, start=1, end=nchar(str)) {
+pystr_startswith <- function(str, prefix, start=1, end=max(nchar(str))) {
+  return(vapply(str, function(x) pystr_startswith_(x, prefix, start=start, end=end), logical(1), USE.NAMES = FALSE))
+}
+
+pystr_startswith_ <- function(str, prefix, start, end) {
   prefix = as.list(prefix)
   string_to_check = substr(str, start, end)
 

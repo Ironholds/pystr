@@ -26,7 +26,11 @@
 #' pystr_endswith("hello world", "ello", 1, 5)
 #'
 #' @export
-pystr_endswith <- function(str, suffix, start=1, end=nchar(str)) {
+pystr_endswith <- function(str, suffix, start=1, end=max(nchar(str))) {
+  return(vapply(str, function(x) pystr_endswith_(x, suffix, start=start, end=end), logical(1), USE.NAMES = FALSE))
+}
+
+pystr_endswith_ <- function(str, suffix, start, end) {
   suffix = if(is.list(suffix)) suffix else as.list(suffix)
   string_to_check = substr(str, start, end)
 

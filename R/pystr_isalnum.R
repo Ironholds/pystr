@@ -3,9 +3,9 @@
 #' Return \code{TRUE} if all characters in the string are alphanumeric and there is at
 #' least one character, \code{FALSE} otherwise.
 #'
-#' @param str A string or character vector.
+#' @param str A character vector.
 #'
-#' @return \code{TRUE} or \code{FALSE}.
+#' @return A logical vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.isalnum}
 #'

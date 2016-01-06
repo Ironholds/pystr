@@ -2,9 +2,9 @@
 #'
 #' Return a copy of the string with all the cased characters converted to uppercase.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.upper}
 #'
@@ -15,5 +15,5 @@
 #'
 #' @export
 pystr_upper <- function(str) {
-  return(toupper(str))
+  return(vapply(str, toupper, character(1), USE.NAMES = FALSE))
 }

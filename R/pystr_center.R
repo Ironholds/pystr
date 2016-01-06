@@ -5,11 +5,11 @@
 #' @details Padding is done using the specified \code{fillchar} (default is an ASCII space).
 #' The original string is returned if \code{width} is less than or equal to \code{nchar(str)}.
 #'
-#' @param str A string or vector of strings.
+#' @param str A character vector.
 #' @param width An integer.
-#' @param fillchar A character.
+#' @param fillchar A character string.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.center}
 #'

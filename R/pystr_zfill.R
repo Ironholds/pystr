@@ -7,10 +7,10 @@
 #' the sign character rather than before. The original string is returned if
 #' \code{width} is less than or equal to \code{nchar(str)}.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #' @param width An integer.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.zfill}
 #'
@@ -21,6 +21,10 @@
 #'
 #' @export
 pystr_zfill <- function(str, width) {
+  return(vapply(str, function(x) pystr_zfill_(x, width), character(1), USE.NAMES = FALSE))
+}
+
+pystr_zfill_ <- function(str, width) {
   if(width <= nchar(str)) {
     return(str)
   }

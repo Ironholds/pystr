@@ -3,10 +3,9 @@
 #' Return \code{TRUE} if all cased characters in the string are uppercase and there is at
 #' least one cased character, \code{FALSE} otherwise.
 #'
-#' @param str A string or vector of strings.
+#' @param str A character vector.
 #'
-#' @return \code{TRUE} or \code{FALSE}, or \code{NA} in the case that the input
-#' is \code{NA}.
+#' @return A logical vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.isupper}
 #'

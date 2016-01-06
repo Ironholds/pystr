@@ -2,9 +2,9 @@
 #'
 #' Return a copy of the string with all the cased characters converted to lowercase.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.lower}
 #'
@@ -15,5 +15,5 @@
 #'
 #' @export
 pystr_lower <- function(str) {
-  return(tolower(str))
+  return(vapply(str, tolower, character(1), USE.NAMES = FALSE))
 }

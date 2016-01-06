@@ -4,12 +4,12 @@
 #'
 #' If the optional argument \code{count} is given, only the first \code{count} occurrences are replaced.
 #'
-#' @param str A string.
-#' @param old A string.
-#' @param new A string.
+#' @param str A character vector.
+#' @param old A character string.
+#' @param new A character string.
 #' @param count An integer.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.replace}
 #'
@@ -18,7 +18,11 @@
 #' pystr_replace("123123123", "2", "two", 2)
 #'
 #' @export
-pystr_replace <- function(str, old, new, count=nchar(str) + 2) {
+pystr_replace <- function(str, old, new, count=max(nchar(str) + 2)) {
+  return(vapply(str, function(x) pystr_replace_(x, old, new, count=count), character(1), USE.NAMES = FALSE))
+}
+
+pystr_replace_ <- function(str, old, new, count) {
   if(count == 0) {
     return(str)
   }

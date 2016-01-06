@@ -3,9 +3,9 @@
 #' Return a titlecased version of the string where words start with an uppercase character
 #' and the remaining characters are lowercase.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.title}
 #'
@@ -14,6 +14,10 @@
 #'
 #' @export
 pystr_title <- function(str) {
+  return(vapply(str, pystr_title_, character(1), USE.NAMES = FALSE))
+}
+
+pystr_title_ <- function(str) {
   titled = ""
 
   for(i in 1:nchar(str)) {
