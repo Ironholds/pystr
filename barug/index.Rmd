@@ -1,0 +1,139 @@
+---
+title: "Python String Methods in R"
+author: "Nicole & Oliver"
+output: ioslides_presentation
+---
+
+## Agenda
+
+* About us
+* Why did we build pystr?
+* Rcpp
+
+## About Nicole
+
+## About Oliver
+
+## What is pystr?
+
+```{r, eval=FALSE}
+install.packages("pystr")
+```
+```{r}
+library(pystr)
+```
+
+# Why did we build pystr?
+
+# Split a string
+
+## The Python Way
+
+```{python}
+url = "www.example.com"
+url.split(".")
+
+['www', 'example', 'com']
+```
+
+## The R Way
+
+```{r}
+url = "www.example.com"
+
+strsplit(url, ".")
+```
+
+## The `pystr` Way
+
+```{r}
+url = "www.example.com"
+
+pystr_split(url, ".")
+```
+
+# Check if a string begins with a substring
+
+## The Python Way
+
+```{python}
+url = "http://www.neo4j.com"
+url.startswith("https://")
+
+False
+```
+
+## The R Way
+
+```{r}
+url = "http://www.neo4j.com"
+substring(url, 1, nchar("https://") - 1) == "https://"
+```
+
+## The `pystr` Way
+
+```{r}
+url = "http://www.neo4j.com"
+pystr_startswith(url, "https://")
+```
+
+# Substitute the first n occurrences of a substring
+
+## The Python Way
+
+```{python}
+s = "All I do is win, win, win no matter what..."
+s.replace("win", "lose", 2)
+
+'All I do is lose, lose, win no matter what...'
+```
+
+## The R Way
+
+```{r}
+s = "All I do is win, win, win no matter what..."
+count = 0
+
+while (count < 2) {
+  s = sub("win", "lose", s)
+  count = count + 1
+}
+
+s
+```
+
+## The `pystr` Way
+
+```{r}
+s = "All I do is win, win, win no matter what..."
+pystr_replace(s, "win", "lose", 2)
+```
+
+# Format a string
+
+## The Python Way
+
+```{python}
+s = "The name is {last}. {first} {last}."
+s.format(first="James", last="Bond")
+
+'The name is Bond. James Bond.'
+```
+
+## The R Way
+
+```{r}
+first = "James"; last = "Bond"
+paste0("The names is ", last, ". ", first, " ", last, ".")
+```
+
+## The `pystr` Way
+
+```{r}
+s = "The name is {last}. {first} {last}."
+pystr_format(s, first="James", last="Bond")
+```
+
+# Rcpp
+
+# Conclusion
