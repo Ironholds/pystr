@@ -4,4 +4,3 @@ README.Rmd
 README.md
 Makefile
 .travis.yml
-writeups/*
