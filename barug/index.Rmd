@@ -14,6 +14,10 @@ output: ioslides_presentation
 
 ## About Oliver
 
+* HCI researcher for Wikimedia
+* RDogFella
+* I like making R run fast
+
 ## What is pystr?
 
 ```{r, eval=FALSE}
@@ -135,5 +139,18 @@ pystr_format(s, first="James", last="Bond")
 ```
 
 # Rcpp
+
+## What the hell is that?
+
+* Integrate C++ into R thanks to Dirk Eddelbuettel & Romain Francois
+* Result: very, very fast R.
+* Particularly useful for string manipulation.
+
+
+## Why does it matter to Pystr?
+
+* Python is scalar, but R is not
+* C++ lets us vectorise Pystr code
+* Result: it runs (almost) as fast as base R's equivalents
 
 # Conclusion
