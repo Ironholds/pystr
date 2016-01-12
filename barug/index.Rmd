@@ -75,6 +75,14 @@ url = "www.example.com"
 strsplit(url, ".")
 ```
 
+Ugh. `?strsplit`
+
+```{r}
+url = "www.example.com"
+
+strsplit(url, ".", fixed=TRUE)
+```
+
 ## Split a string | The `pystr` Way
 
 ```{r}

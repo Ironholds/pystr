@@ -178,6 +178,15 @@ strsplit(url, &quot;.&quot;)</pre>
 <pre >## [[1]]
 ##  [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</pre>
 
+<p>Ugh. <code>?strsplit</code></p>
+
+<pre class = 'prettyprint lang-r'>url = &quot;www.example.com&quot;
+
+strsplit(url, &quot;.&quot;, fixed=TRUE)</pre>
+
+<pre >## [[1]]
+## [1] &quot;www&quot;     &quot;example&quot; &quot;com&quot;</pre>
+
 </article></slide><slide class=''><hgroup><h2>Split a string </h2><h3> The <code>pystr</code> Way</h3></hgroup><article  id="split-a-string-the-pystr-way">
 
 <pre class = 'prettyprint lang-r'>url = &quot;www.example.com&quot;
