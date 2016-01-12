@@ -35,19 +35,19 @@ output: ioslides_presentation
 
 ## What is pystr?
 
-### A port of (most) Python string methods to R.
+### A port of (most) Python string methods to R
 
 <h3 align="center">
-<code>str.method() ---> pystr_method()</code>
+<code>str.method() --> pystr_method()</code>
 </h3>
 
 ### For example...
 
 <h3 align="center">
-<code>str.count() ---> pystr_count()</code>
+<code>str.count(substr) --> pystr_count(str, substr)</code>
 </h3>
 
-### It's on CRAN.
+### It's on CRAN
 
 ```{r, eval=FALSE}
 install.packages("pystr")
