@@ -1,16 +1,31 @@
 ---
 title: "Python String Methods in R"
-author: "Nicole & Oliver"
+author: Nicole White & Oliver Keyes
 output: ioslides_presentation
 ---
 
 ## Agenda
 
-* About us
+* Introduction
+    * About Nicole & Oliver
+    * What is pystr?
 * Why did we build pystr?
+    * Python vs. R: a few examples
 * Rcpp
+    * What is it?
+    * Why is it relevant to `pystr`?
+* Conclusion
+    * Base R string operations can be unfriendly to Python developers
+    * Contribute!
+
+# Introduction
 
 ## About Nicole
+
+* BS in Economics from LSU
+* MS in Analytics from UT Austin
+* Data Scientist at Neo4j
+* I like R and Python equally
 
 ## About Oliver
 
@@ -20,18 +35,30 @@ output: ioslides_presentation
 
 ## What is pystr?
 
+### A port of (most) Python string methods to R.
+
+<h3 align="center">
+<code>str.method() ---> pystr_method()</code>
+</h3>
+
+### For example...
+
+<h3 align="center">
+<code>str.count() ---> pystr_count()</code>
+</h3>
+
+### It's on CRAN.
+
 ```{r, eval=FALSE}
 install.packages("pystr")
 ```
-```{r}
+```{r, echo=FALSE}
 library(pystr)
 ```
 
 # Why did we build pystr?
 
-# Split a string
-
-## The Python Way
+## Split a string | The Python Way
 
 ```{python}
 url = "www.example.com"
@@ -40,7 +67,7 @@ url.split(".")
 ['www', 'example', 'com']
 ```
 
-## The R Way
+## Split a string | The R Way
 
 ```{r}
 url = "www.example.com"
@@ -48,7 +75,7 @@ url = "www.example.com"
 strsplit(url, ".")
 ```
 
-## The `pystr` Way
+## Split a string | The `pystr` Way
 
 ```{r}
 url = "www.example.com"
@@ -56,9 +83,7 @@ url = "www.example.com"
 pystr_split(url, ".")
 ```
 
-# Check if a string begins with a substring
-
-## The Python Way
+## Check if a string begins with a substring | The Python Way
 
 ```{python}
 url = "http://www.neo4j.com"
@@ -67,23 +92,21 @@ url.startswith("https://")
 False
 ```
 
-## The R Way
+## Check if a string begins with a substring | The R Way
 
 ```{r}
 url = "http://www.neo4j.com"
 substring(url, 1, nchar("https://") - 1) == "https://"
 ```
 
-## The `pystr` Way
+## Check if a string begins with a substring | The `pystr` Way
 
 ```{r}
 url = "http://www.neo4j.com"
 pystr_startswith(url, "https://")
 ```
 
-# Substitute the first n occurrences of a substring
-
-## The Python Way
+## Substitute the first n occurrences of a substring | The Python Way
 
 ```{python}
 s = "All I do is win, win, win no matter what..."
@@ -92,7 +115,7 @@ s.replace("win", "lose", 2)
 'All I do is lose, lose, win no matter what...'
 ```
 
-## The R Way
+## Substitute the first n occurrences of a substring | The R Way
 
 ```{r}
 s = "All I do is win, win, win no matter what..."
@@ -106,16 +129,14 @@ while (count < 2) {
 s
 ```
 
-## The `pystr` Way
+## Substitute the first n occurrences of a substring | The `pystr` Way
 
 ```{r}
 s = "All I do is win, win, win no matter what..."
 pystr_replace(s, "win", "lose", 2)
 ```
 
-# Format a string
-
-## The Python Way
+## Format a string | The Python Way
 
 ```{python}
 s = "The name is {last}. {first} {last}."
@@ -124,14 +145,19 @@ s.format(first="James", last="Bond")
 'The name is Bond. James Bond.'
 ```
 
-## The R Way
+## Format a string | The R Way
 
 ```{r}
 first = "James"; last = "Bond"
 paste0("The names is ", last, ". ", first, " ", last, ".")
 ```
 
-## The `pystr` Way
+```{r}
+first = "James"; last = "Bond"
+sprintf("The name is %s. %s %s.", last, first, last)
+```
+
+## Format a string | The `pystr` Way
 
 ```{r}
 s = "The name is {last}. {first} {last}."
@@ -146,11 +172,21 @@ pystr_format(s, first="James", last="Bond")
 * Result: very, very fast R.
 * Particularly useful for string manipulation.
 
-
-## Why does it matter to Pystr?
+## Why does it matter to `pystr`?
 
 * Python is scalar, but R is not
-* C++ lets us vectorise Pystr code
+* C++ lets us vectorise `pystr` code
 * Result: it runs (almost) as fast as base R's equivalents
 
 # Conclusion
+
+## R is unfriendly sometimes
+
+<figure align="center">
+<img src="figure/dog.jpg" align="center">
+<figcaption>Me navigating base R string operations</figcaption>
+</figure>
+
+## Contribute!
+
+### `github.com/nicolewhite/pystr`
