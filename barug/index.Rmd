@@ -33,7 +33,7 @@ output: ioslides_presentation
 * RDogFella
 * I like making R run fast
 
-## What is pystr?
+## What is `pystr`?
 
 ### A port of (most) Python string methods to R
 
