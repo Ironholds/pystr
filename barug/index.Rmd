@@ -8,8 +8,8 @@ output: ioslides_presentation
 
 * Introduction
     * About Nicole & Oliver
-    * What is pystr?
-* Why did we build pystr?
+    * What is `pystr`?
+* Why did we build `pystr`?
     * Python vs. R: a few examples
 * Rcpp
     * What is it?
