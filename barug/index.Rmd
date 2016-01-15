@@ -62,9 +62,7 @@ library(pystr)
 
 ```{python}
 url = "www.example.com"
-url.split(".")
-
-['www', 'example', 'com']
+print(url.split("."))
 ```
 
 ## Split a string | The R Way
@@ -95,9 +93,7 @@ pystr_split(url, ".")
 
 ```{python}
 url = "http://www.neo4j.com"
-url.startswith("https://")
-
-False
+print(url.startswith("https://"))
 ```
 
 ## Check if a string begins with a substring | The R Way
@@ -118,9 +114,7 @@ pystr_startswith(url, "https://")
 
 ```{python}
 s = "All I do is win, win, win no matter what..."
-s.replace("win", "lose", 2)
-
-'All I do is lose, lose, win no matter what...'
+print(s.replace("win", "lose", 2))
 ```
 
 ## Substitute the first n occurrences of a substring | The R Way
@@ -148,9 +142,7 @@ pystr_replace(s, "win", "lose", 2)
 
 ```{python}
 s = "The name is {last}. {first} {last}."
-s.format(first="James", last="Bond")
-
-'The name is Bond. James Bond.'
+print(s.format(first="James", last="Bond"))
 ```
 
 ## Format a string | The R Way

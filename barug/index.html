@@ -165,9 +165,9 @@
 </article></slide><slide class=''><hgroup><h2>Split a string </h2><h3> The Python Way</h3></hgroup><article  id="split-a-string-the-python-way">
 
 <pre class = 'prettyprint lang-python'>url = &quot;www.example.com&quot;
-url.split(&quot;.&quot;)
+print(url.split(&quot;.&quot;))</pre>
 
-[&#39;www&#39;, &#39;example&#39;, &#39;com&#39;]</pre>
+<pre >## [&#39;www&#39;, &#39;example&#39;, &#39;com&#39;]</pre>
 
 </article></slide><slide class=''><hgroup><h2>Split a string </h2><h3> The R Way</h3></hgroup><article  id="split-a-string-the-r-way">
 
@@ -198,9 +198,9 @@ pystr_split(url, &quot;.&quot;)</pre>
 </article></slide><slide class=''><hgroup><h2>Check if a string begins with a substring </h2><h3> The Python Way</h3></hgroup><article  id="check-if-a-string-begins-with-a-substring-the-python-way">
 
 <pre class = 'prettyprint lang-python'>url = &quot;http://www.neo4j.com&quot;
-url.startswith(&quot;https://&quot;)
+print(url.startswith(&quot;https://&quot;))</pre>
 
-False</pre>
+<pre >## False</pre>
 
 </article></slide><slide class=''><hgroup><h2>Check if a string begins with a substring </h2><h3> The R Way</h3></hgroup><article  id="check-if-a-string-begins-with-a-substring-the-r-way">
 
@@ -219,9 +219,9 @@ pystr_startswith(url, &quot;https://&quot;)</pre>
 </article></slide><slide class=''><hgroup><h2>Substitute the first n occurrences of a substring </h2><h3> The Python Way</h3></hgroup><article  id="substitute-the-first-n-occurrences-of-a-substring-the-python-way">
 
 <pre class = 'prettyprint lang-python'>s = &quot;All I do is win, win, win no matter what...&quot;
-s.replace(&quot;win&quot;, &quot;lose&quot;, 2)
+print(s.replace(&quot;win&quot;, &quot;lose&quot;, 2))</pre>
 
-&#39;All I do is lose, lose, win no matter what...&#39;</pre>
+<pre >## All I do is lose, lose, win no matter what...</pre>
 
 </article></slide><slide class=''><hgroup><h2>Substitute the first n occurrences of a substring </h2><h3> The R Way</h3></hgroup><article  id="substitute-the-first-n-occurrences-of-a-substring-the-r-way">
 
@@ -247,9 +247,9 @@ pystr_replace(s, &quot;win&quot;, &quot;lose&quot;, 2)</pre>
 </article></slide><slide class=''><hgroup><h2>Format a string </h2><h3> The Python Way</h3></hgroup><article  id="format-a-string-the-python-way">
 
 <pre class = 'prettyprint lang-python'>s = &quot;The name is {last}. {first} {last}.&quot;
-s.format(first=&quot;James&quot;, last=&quot;Bond&quot;)
+print(s.format(first=&quot;James&quot;, last=&quot;Bond&quot;))</pre>
 
-&#39;The name is Bond. James Bond.&#39;</pre>
+<pre >## The name is Bond. James Bond.</pre>
 
 </article></slide><slide class=''><hgroup><h2>Format a string </h2><h3> The R Way</h3></hgroup><article  id="format-a-string-the-r-way">
 
