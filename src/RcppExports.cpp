@@ -30,12 +30,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // pystr_count_
-std::vector < int > pystr_count_(std::vector < std::string > strs, std::string sub, int start, int end);
+IntegerVector pystr_count_(CharacterVector strs, std::string sub, int start, int end);
 RcppExport SEXP pystr_pystr_count_(SEXP strsSEXP, SEXP subSEXP, SEXP startSEXP, SEXP endSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
     Rcpp::traits::input_parameter< std::string >::type sub(subSEXP);
     Rcpp::traits::input_parameter< int >::type start(startSEXP);
     Rcpp::traits::input_parameter< int >::type end(endSEXP);

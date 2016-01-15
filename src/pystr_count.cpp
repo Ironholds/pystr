@@ -24,12 +24,16 @@ int str_count(std::string str, std::string sub, int start, int end) {
 }
 
 // [[Rcpp::export]]
-std::vector < int > pystr_count_(std::vector < std::string > strs, std::string sub, int start, int end) {
+IntegerVector pystr_count_(CharacterVector strs, std::string sub, int start, int end) {
   int input_size = strs.size();
-  std::vector < int > output(input_size);
+  IntegerVector output(input_size);
 
   for(int i = 0; i < input_size; i++){
-    output[i] = str_count(strs[i], sub, start, end);
+    if(strs[i] == NA_STRING){
+      output[i] = NA_INTEGER;
+    } else {
+      output[i] = str_count(Rcpp::as<std::string>(strs[i]), sub, start, end);
+    }
   }
 
   return output;

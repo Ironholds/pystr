@@ -21,6 +21,10 @@ test_that("it returns 0 when asking for a range outside the string's range", {
   expect_equal(count, 0)
 })
 
+test_that("it handles NAs", {
+  count = pystr_count(NA, "bab", 1, 3)
+  expect_true(is.na(count))
+})
 test_that("it counts substrings not adjacent", {
   expect_equal(pystr_count("a--b--c", "--"), 2)
 })
