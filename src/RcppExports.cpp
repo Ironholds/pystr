@@ -6,23 +6,23 @@
 using namespace Rcpp;
 
 // pystr_capitalize_
-std::vector < std::string > pystr_capitalize_(std::vector < std::string > strs);
+CharacterVector pystr_capitalize_(CharacterVector strs);
 RcppExport SEXP pystr_pystr_capitalize_(SEXP strsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
     __result = Rcpp::wrap(pystr_capitalize_(strs));
     return __result;
 END_RCPP
 }
 // pystr_center_
-std::vector < std::string > pystr_center_(std::vector < std::string > strs, int width, char fillchar);
+CharacterVector pystr_center_(CharacterVector strs, int width, char fillchar);
 RcppExport SEXP pystr_pystr_center_(SEXP strsSEXP, SEXP widthSEXP, SEXP fillcharSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
     Rcpp::traits::input_parameter< int >::type width(widthSEXP);
     Rcpp::traits::input_parameter< char >::type fillchar(fillcharSEXP);
     __result = Rcpp::wrap(pystr_center_(strs, width, fillchar));

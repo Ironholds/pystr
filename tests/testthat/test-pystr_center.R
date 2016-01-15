@@ -36,3 +36,10 @@ test_that("it works with character vectors", {
   centered = pystr_center(original, 7, "*")
   expect_equal(centered, c("*hello*", "*world*"))
 })
+
+
+test_that("it works with NAs", {
+  original = c("hello", NA)
+  centered = pystr_center(original, 7, "*")
+  expect_equal(centered, c("*hello*", NA))
+})

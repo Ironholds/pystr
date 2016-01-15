@@ -24,3 +24,9 @@ test_that("it works with vectors of strings", {
   capitalized = pystr_capitalize(original)
   expect_equal(capitalized, c("Hello", "World"))
 })
+
+test_that("it handles NAs appropriately", {
+  original = c("HELLO", NA)
+  capitalized = pystr_capitalize(original)
+  expect_equal(capitalized, c("Hello", NA))
+})

@@ -21,13 +21,15 @@ std::string center_single(std::string initial_string, int& width, char& fill_cha
 }
 
 // [[Rcpp::export]]
-std::vector < std::string > pystr_center_(std::vector < std::string > strs, int width, char fillchar){
+CharacterVector pystr_center_(CharacterVector strs, int width, char fillchar){
 
   int& width_ref = width;
   char& fill_ref = fillchar;
 
   for(unsigned int i = 0; i < strs.size(); i++){
-    strs[i] = center_single(strs[i], width_ref, fill_ref);
+    if(strs[i] != NA_STRING){
+      strs[i] = center_single(Rcpp::as<std::string>(strs[i]), width_ref, fill_ref);
+    }
   }
 
   return strs;
