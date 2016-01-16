@@ -44,12 +44,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // pystr_isalnum_
-std::vector < bool > pystr_isalnum_(std::vector < std::string > strs);
+LogicalVector pystr_isalnum_(CharacterVector strs);
 RcppExport SEXP pystr_pystr_isalnum_(SEXP strsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< std::vector < std::string > >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
     __result = Rcpp::wrap(pystr_isalnum_(strs));
     return __result;
 END_RCPP

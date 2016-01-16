@@ -14,13 +14,17 @@ bool str_isalnum(std::string str){
 }
 
 //[[Rcpp::export]]
-std::vector < bool > pystr_isalnum_(std::vector < std::string > strs){
+LogicalVector pystr_isalnum_(CharacterVector strs){
 
   unsigned int input_size = strs.size();
-  std::vector < bool > output(input_size);
+  LogicalVector output(input_size);
 
   for(unsigned int i = 0; i < input_size; i++){
-    output[i] = str_isalnum(strs[i]);
+    if(strs[i] == NA_STRING){
+      output[i] = NA_LOGICAL;
+    } else {
+      output[i] = str_isalnum(Rcpp::as<std::string>(strs[i]));
+    }
   }
 
   return output;
