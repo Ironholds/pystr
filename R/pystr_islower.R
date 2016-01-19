@@ -5,7 +5,7 @@
 #'
 #' @param str A string.
 #'
-#' @return \code{TRUE} or \code{FALSE}
+#' @return \code{TRUE} or \code{FALSE}.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.islower}
 #'

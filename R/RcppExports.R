@@ -21,6 +21,10 @@ pystr_isalpha_ <- function(strs) {
     .Call('pystr_pystr_isalpha_', PACKAGE = 'pystr', strs)
 }
 
+pystr_islower_ <- function(strs) {
+    .Call('pystr_pystr_islower_', PACKAGE = 'pystr', strs)
+}
+
 pystr_isnumeric_ <- function(strs) {
     .Call('pystr_pystr_isnumeric_', PACKAGE = 'pystr', strs)
 }
