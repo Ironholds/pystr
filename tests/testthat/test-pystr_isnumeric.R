@@ -13,3 +13,8 @@ test_that("it works with a vector of strings", {
   nums = c("123", "123a", "123!")
   expect_equal(pystr_isnumeric(nums), c(TRUE, FALSE, FALSE))
 })
+
+test_that("it works with NAs", {
+  nums = c("123", "123a", NA)
+  expect_equal(pystr_isnumeric(nums), c(TRUE, FALSE, NA))
+})

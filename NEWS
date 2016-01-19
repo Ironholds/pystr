@@ -3,4 +3,4 @@ Version 1.1.0 [WIP]
 
 FEATURES
 * Work to increase the number of functions vectorised compile-side
-* Code to handle NAs appropriately (i.e. treat them as NAs rather than the string 'NA') is being introduced.
+* Compiled code now handles NAs correctly

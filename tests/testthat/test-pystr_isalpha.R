@@ -12,3 +12,7 @@ test_that("it returns false when not all characters are alphabetic", {
 test_that("it works with a vector of strings", {
   expect_equal(pystr_isalpha(c("one", "2", "three!")), c(TRUE, FALSE, FALSE))
 })
+
+test_that("it works with NAs", {
+  expect_equal(pystr_isalpha(c("one", "2", NA)), c(TRUE, FALSE, NA))
+})
