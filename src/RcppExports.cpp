@@ -87,3 +87,14 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_isupper_
+LogicalVector pystr_isupper_(CharacterVector strs);
+RcppExport SEXP pystr_pystr_isupper_(SEXP strsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
+    __result = Rcpp::wrap(pystr_isupper_(strs));
+    return __result;
+END_RCPP
+}

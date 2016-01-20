@@ -7,10 +7,11 @@
 pystr_isupper(str)
 }
 \arguments{
-\item{str}{A string.}
+\item{str}{A string or vector of strings.}
 }
 \value{
-\code{TRUE} or \code{FALSE}
+\code{TRUE} or \code{FALSE}, or \code{NA} in the case that the input
+is \code{NA}.
 }
 \description{
 Return \code{TRUE} if all cased characters in the string are uppercase and there is at

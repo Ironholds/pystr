@@ -3,9 +3,10 @@
 #' Return \code{TRUE} if all cased characters in the string are uppercase and there is at
 #' least one cased character, \code{FALSE} otherwise.
 #'
-#' @param str A string.
+#' @param str A string or vector of strings.
 #'
-#' @return \code{TRUE} or \code{FALSE}
+#' @return \code{TRUE} or \code{FALSE}, or \code{NA} in the case that the input
+#' is \code{NA}.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.isupper}
 #'
@@ -18,18 +19,5 @@
 #'
 #' @export
 pystr_isupper <- function(str) {
-  cased = 0
-
-  for(i in 1:nchar(str)) {
-    letter = substr(str, i, i)
-
-    if(pystr_isalpha(letter)) {
-      cased = cased + 1
-      if(!(letter == toupper(letter))) {
-        return(FALSE)
-      }
-    }
-  }
-
-  return(cased > 0)
+  return(pystr_isupper_(str))
 }

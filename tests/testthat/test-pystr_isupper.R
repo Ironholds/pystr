@@ -16,3 +16,11 @@ test_that("the presence of punctuation and numerics doesn't matter", {
 test_that("it returns false if there are no cased characters", {
   expect_false(pystr_isupper("?!."))
 })
+
+test_that("Vectors are supported", {
+  expect_equal(pystr_isupper(c("?!.", "Foo", "FOO")), c(FALSE, FALSE, TRUE))
+})
+
+test_that("NA values are supported", {
+  expect_equal(pystr_isupper(c("?!.", "Foo", NA)), c(FALSE, FALSE, NA))
+})

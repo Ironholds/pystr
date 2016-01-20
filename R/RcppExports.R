@@ -29,3 +29,7 @@ pystr_isnumeric_ <- function(strs) {
     .Call('pystr_pystr_isnumeric_', PACKAGE = 'pystr', strs)
 }
 
+pystr_isupper_ <- function(strs) {
+    .Call('pystr_pystr_isupper_', PACKAGE = 'pystr', strs)
+}
+
