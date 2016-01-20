@@ -4,11 +4,18 @@ using namespace Rcpp;
 bool str_islower(std::string str){
 
   unsigned int input_size = str.size();
+  unsigned int check_nonalpha = 0;
 
   for(unsigned int i = 0; i < input_size; i++){
     if(!islower(str[i])){
-      return false;
+      if(isalpha(str[i])){
+        return false;
+      }
+      check_nonalpha++;
     }
+  }
+  if(check_nonalpha == input_size){
+    return false;
   }
   return true;
 }
