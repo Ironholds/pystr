@@ -33,3 +33,11 @@ pystr_isupper_ <- function(strs) {
     .Call('pystr_pystr_isupper_', PACKAGE = 'pystr', strs)
 }
 
+pystr_lstrip_ <- function(strs, chars) {
+    .Call('pystr_pystr_lstrip_', PACKAGE = 'pystr', strs, chars)
+}
+
+pystr_rstrip_ <- function(strs, chars) {
+    .Call('pystr_pystr_rstrip_', PACKAGE = 'pystr', strs, chars)
+}
+

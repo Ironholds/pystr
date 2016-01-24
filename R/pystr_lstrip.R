@@ -21,18 +21,5 @@
 #'
 #' @export
 pystr_lstrip <- function(str, chars=" ") {
-  stripped = str
-  chars = strsplit(chars, "")[[1]]
-
-  for(i in 1:nchar(str)) {
-    letter = substr(str, i, i)
-
-    if(letter %in% chars) {
-      stripped = substr(stripped, 2, nchar(stripped))
-    } else {
-      break
-    }
-  }
-
-  return(stripped)
+  return( pystr_lstrip_(str,chars) )
 }
