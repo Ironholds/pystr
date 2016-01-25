@@ -5,8 +5,7 @@ std::string leftstrip(std::string input_str, std::string chars){
   unsigned int input_size = input_str.size();
   unsigned int final_start = 0;
   for( unsigned int i= 0; i<input_size; i++){
-    char this_char = input_str[i];
-    std::size_t found = chars.find(this_char);
+    std::size_t found = chars.find( input_str[i] );
     //if string is found
     if(found != std::string::npos)
       final_start++;

@@ -5,8 +5,7 @@ std::string rightstrip(std::string input_str, std::string chars){
   unsigned int input_size = input_str.size();
   unsigned int final_size = input_size;
   for( int i= (input_size-1); i>=0; i--){
-    char this_char = input_str[i];
-    std::size_t found = chars.find(this_char);
+    std::size_t found = chars.find( input_str[i] );
     //if string is found
     if(found != std::string::npos)
       final_size --;
