@@ -3,6 +3,7 @@ sudo: required
 r_github_packages:
   - hadley/testthat
   - jimhester/covr
+  - klutometis/roxygen
 script: make test
 after_success:
   - Rscript -e 'covr::coveralls()'
