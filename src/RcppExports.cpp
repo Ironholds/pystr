@@ -98,3 +98,27 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_lstrip_
+CharacterVector pystr_lstrip_(CharacterVector strs, std::string chars);
+RcppExport SEXP pystr_pystr_lstrip_(SEXP strsSEXP, SEXP charsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type chars(charsSEXP);
+    __result = Rcpp::wrap(pystr_lstrip_(strs, chars));
+    return __result;
+END_RCPP
+}
+// pystr_rstrip_
+CharacterVector pystr_rstrip_(CharacterVector strs, std::string chars);
+RcppExport SEXP pystr_pystr_rstrip_(SEXP strsSEXP, SEXP charsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type chars(charsSEXP);
+    __result = Rcpp::wrap(pystr_rstrip_(strs, chars));
+    return __result;
+END_RCPP
+}
