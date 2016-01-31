@@ -3,7 +3,6 @@ sudo: required
 r_github_packages:
   - hadley/testthat
   - jimhester/covr
-  - klutometis/roxygen
 r_packages:
   - roxygen2
 script: make test
