@@ -12,3 +12,7 @@ test_that("it leaves non-cased characters alone", {
 test_that("it works when there are only non-cased characters", {
   expect_equal(pystr_swapcase("?!;"), "?!;")
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_swapcase(c("aBc!", "aBc")), c("AbC!", "AbC"))
+})

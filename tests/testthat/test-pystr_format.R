@@ -132,3 +132,9 @@ test_that("It works with data.frames", {
   expect_equal(sentences[3], "Clark Kent is really Superman but you shouldn't call them Clark in public." )
   expect_equal(sentences[4], "Diana Prince is really Wonder Woman but you shouldn't call them Diana in public.")
 })
+
+test_that("it works with a characte vector", {
+  input = c("Hello {world}!", "Hello {world}")
+  output = c("Hello thing!", "Hello thing")
+  expect_equal(pystr_format(input, world="thing"), output)
+})

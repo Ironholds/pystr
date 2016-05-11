@@ -8,3 +8,7 @@ test_that("it gives the index if sub exists", {
 test_that("it throws an error if sub does not exist", {
   expect_error(pystr_index("abcd", "xy"))
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_index(c("abcabc", "xyabc"), "abc"), c(1, 3))
+})

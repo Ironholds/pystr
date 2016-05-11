@@ -36,3 +36,7 @@ test_that("it returns FALSE when start and end are out of bounds", {
 test_that("all strings end with an empty string", {
   expect_true(pystr_endswith("hello", ""))
 })
+
+test_that("it works with a character vector", {
+ expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), ".jpg"), c(TRUE, FALSE))
+})

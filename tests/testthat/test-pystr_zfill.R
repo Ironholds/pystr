@@ -16,3 +16,7 @@ test_that("it leaves the plus sign at the beginning", {
 test_that("it returns the string itself if width <= nchar(str)", {
   expect_equal(pystr_zfill("hello", 4), "hello")
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_zfill(c("42", "7"), 5), c("00042", "00007"))
+})

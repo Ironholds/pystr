@@ -36,3 +36,7 @@ test_that("it returns FALSE when start and end are out of bounds", {
 test_that("all strings start with an empty string", {
   expect_true(pystr_startswith("hello", ""))
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_startswith(c("http://", "https://"), "http://"), c(TRUE, FALSE))
+})

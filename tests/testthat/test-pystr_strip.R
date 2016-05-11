@@ -16,3 +16,7 @@ test_that("it strips chars from both sides", {
 test_that("it returns the same string if there's nothing to strip", {
   expect_equal(pystr_strip("hello world"), "hello world")
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_strip(c("  spacious  ", "  hi  ")), c("spacious", "hi"))
+})

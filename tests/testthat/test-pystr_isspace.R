@@ -12,3 +12,7 @@ test_that("if returns false if there's something other than a space", {
 test_that("it returns false for an empty string", {
   expect_false(pystr_isspace(""))
 })
+
+test_that("it works with a character vector", {
+  expect_equal(pystr_isspace(c("   ", "hi")), c(TRUE, FALSE))
+})
