@@ -11,11 +11,11 @@ We're moving functions over to C++! We've done the following so far:
 - [ ] pystr_index.R
 - [x] pystr_isalnum.R
 - [x] pystr_isalpha.R
-- [ ] pystr_islower.R
+- [x] pystr_islower.R
 - [x] pystr_isnumeric.R
 - [ ] pystr_isspace.R
 - [ ] pystr_istitle.R
-- [ ] pystr_isupper.R
+- [x] pystr_isupper.R
 - [ ] pystr_join.R
 - [ ] pystr_ljust.R
 - [ ] pystr_lower.R
