@@ -1,10 +1,6 @@
-# pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr) [![Coverage Status](https://coveralls.io/repos/nicolewhite/pystr/badge.svg?branch=master&service=github)](https://coveralls.io/github/nicolewhite/pystr?branch=master)
+# pystr [![Build Status](https://travis-ci.org/nicolewhite/pystr.svg?branch=master)](https://travis-ci.org/nicolewhite/pystr) [![Coverage Status](https://coveralls.io/repos/nicolewhite/pystr/badge.svg?branch=master&service=github)](https://coveralls.io/github/nicolewhite/pystr?branch=master) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/pystr)
 
 String operations the Python way: a package for those of us who miss Python's string methods while we're working in R.
-
-## Install
-
-### From CRAN (Stable Release)
 
 ## Install
 
@@ -212,7 +208,7 @@ pystr_index("12345", "xy")
 ```
 
 ```
-## Error in pystr_index("12345", "xy"): ValueError
+## Error in pystr_index_(x, sub, start = start, end = end): ValueError
 ```
 
 ### `pystr_isalnum`
@@ -425,6 +421,7 @@ pystr_partition("onetwothreeonetwothree", "two")
 ```
 
 ```
+## [[1]]
 ## [1] "one"              "two"              "threeonetwothree"
 ```
 
@@ -509,6 +506,7 @@ pystr_rpartition("onetwothreeonetwothree", "two")
 ```
 
 ```
+## [[1]]
 ## [1] "onetwothreeone" "two"            "three"
 ```
 
@@ -521,6 +519,7 @@ pystr_rsplit("a--b--c", "--", 1)
 ```
 
 ```
+## [[1]]
 ## [1] "a--b" "c"
 ```
 
@@ -545,6 +544,7 @@ pystr_split("1+2+3+4", "+")
 ```
 
 ```
+## [[1]]
 ## [1] "1" "2" "3" "4"
 ```
 
@@ -553,6 +553,7 @@ pystr_split("1+2+3+4", "+", 1)
 ```
 
 ```
+## [[1]]
 ## [1] "1"     "2+3+4"
 ```
 
@@ -565,6 +566,7 @@ pystr_splitlines("First\nSecond\nThird")
 ```
 
 ```
+## [[1]]
 ## [1] "First"  "Second" "Third"
 ```
 
