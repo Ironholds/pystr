@@ -15,3 +15,8 @@ test_that("different things can be mapped to the same char", {
   map = pystr_maketrans("abcd", "rrrr")
   expect_equal(pystr_translate("abcdefg", map), "rrrrefg")
 })
+
+test_that("it works with a character vector", {
+  map = pystr_maketrans("abc", "123")
+  expect_equal(pystr_translate(c("abc456", "abcdefg"), map), c("123456", "123defg"))
+})

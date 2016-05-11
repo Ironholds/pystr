@@ -3,10 +3,10 @@
 #' Return a copy of \code{str} where all characters have been mapped through
 #' \code{map}, where \code{map} can be created with \code{\link{pystr_maketrans}}.
 #'
-#' @param str A string.
+#' @param str A character vector.
 #' @param map A list of character mappings.
 #'
-#' @return A string.
+#' @return A character vector.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.translate}
 #'
@@ -18,6 +18,10 @@
 #'
 #' @export
 pystr_translate <- function(str, map) {
+  return(vapply(str, function(x) pystr_translate_(x, map), character(1), USE.NAMES = FALSE))
+}
+
+pystr_translate_ <- function(str, map) {
   translated = str
 
   for(i in 1:length(map)) {
