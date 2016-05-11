@@ -44,7 +44,7 @@ pystr_replace_ <- function(str, old, new, count) {
   remaining = str
 
   while(cum_replaces < num_replaces) {
-    parts = pystr_split(remaining, old, 1)
+    parts = pystr_split(remaining, old, 1)[[1]]
     replaced = paste0(replaced, parts[1], new)
     remaining = parts[2]
     cum_replaces = cum_replaces + 1

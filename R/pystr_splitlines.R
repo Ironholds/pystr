@@ -5,10 +5,10 @@
 #' Line breaks are not included in the resulting list unless \code{keepends} is
 #' \code{TRUE}. Line breaks include \code{"\n"}, \code{"\r"}, and \code{"\r\n"}.
 #'
-#' @param str A string.
-#' @param keepends \code{TRUE} or \code{FALSE}
+#' @param str A character vector.
+#' @param keepends A logical vector.
 #'
-#' @return A character vector.
+#' @return A list of character vectors.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.splitlines}
 #'
@@ -20,6 +20,10 @@
 #'
 #' @export
 pystr_splitlines <- function(str, keepends=FALSE) {
+  return(mapply(pystr_splitlines_, str, keepends, SIMPLIFY=FALSE, USE.NAMES=FALSE))
+}
+
+pystr_splitlines_ <- function(str, keepends) {
   linebreaks = c("\r\n", "\r", "\n")
   splits = c()
   remaining = str
@@ -38,9 +42,9 @@ pystr_splitlines <- function(str, keepends=FALSE) {
     idx = idx[sapply(idx, function(x) x > 0)]
 
     if(!is.na(idx["\r\n"]) && idx["\r\n"] == min(idx)) {
-      parts = pystr_partition(remaining, "\r\n")
+      parts = pystr_partition(remaining, "\r\n")[[1]]
     } else {
-      parts = pystr_partition(remaining, names(sort(idx)[1]))
+      parts = pystr_partition(remaining, names(sort(idx)[1]))[[1]]
     }
 
     if(keepends) {
