@@ -7,10 +7,10 @@
 #' \code{start}, test string beginning at that position. With optional
 #' \code{end}, stop comparing string at that position.
 #'
-#' @param str A string.
-#' @param prefix A string, character vector, or list of strings.
-#' @param start An integer.
-#' @param end An integer.
+#' @param str A character vector.
+#' @param prefix A character vector.
+#' @param start A numeric integer.
+#' @param end A numeric integer.
 #'
 #' @return \code{TRUE} or \code{FALSE}
 #'
@@ -23,7 +23,6 @@
 #' pystr_startswith("example.com", "www.")
 #' pystr_startswith("www.example.com", "example", 5)
 #' pystr_startswith("http://example.com", c("http://", "https://"))
-#' pystr_startswith("http://example.com", list("http://", "https://"))
 #'
 #' @export
 pystr_startswith <- function(str, prefix, start=1, end=max(nchar(str))) {

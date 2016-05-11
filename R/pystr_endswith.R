@@ -7,10 +7,10 @@
 #' With optional \code{start}, test beginning at that position.
 #' With optional \code{end}, stop comparing at that position.
 #'
-#' @param str A string.
-#' @param suffix A string, character vector, or list of strings.
-#' @param start An integer.
-#' @param end An integer.
+#' @param str A character vector.
+#' @param suffix A character vector.
+#' @param start A numeric integer.
+#' @param end A numeric integer.
 #'
 #' @return \code{TRUE} or \code{FALSE}
 #'
@@ -22,7 +22,6 @@
 #' pystr_endswith("selfie.jpg", ".jpg")
 #' pystr_endswith("selfie.jpg", ".png")
 #' pystr_endswith("selfie.jpg", c(".jpg", ".png"))
-#' pystr_endswith("selfie.jpg", list(".jpg", ".png"))
 #' pystr_endswith("hello world", "ello", 1, 5)
 #'
 #' @export
