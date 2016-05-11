@@ -3,9 +3,9 @@
 #' Like \code{\link{pystr_find}} but raises an error if \code{sub} is not found.
 #'
 #' @param str A character vector.
-#' @param sub A character string.
-#' @param start An integer.
-#' @param end An integer.
+#' @param sub A character vector.
+#' @param start A numeric vector.
+#' @param end A numeric vector.
 #'
 #' @return A numeric vector.
 #'
@@ -22,11 +22,11 @@
 #'
 #' @export
 pystr_index <- function(str, sub, start=1, end=nchar(str)) {
-  return(vapply(str, function(x) pystr_index_(x, sub, start=start, end=end), numeric(1), USE.NAMES = FALSE))
+  return(mapply(pystr_index_, str, sub, start, end, USE.NAMES=FALSE))
 }
 
 pystr_index_ <- function(str, sub, start, end) {
-  idx = pystr_find(str, sub)
+  idx = pystr_find(str, sub, start, end)
 
   if(idx < 0) {
     stop("ValueError")

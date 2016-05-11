@@ -3,7 +3,9 @@
 #' Like \code{\link{pystr_rfind}} but raises an error if \code{sub} is not found.
 #'
 #' @param str A character vector.
-#' @param sub A character string.
+#' @param sub A character vector.
+#' @param start A numeric vector.
+#' @param end A numeric vector.
 #'
 #' @return A numeric vector.
 #'
@@ -18,8 +20,12 @@
 #' }
 #'
 #' @export
-pystr_rindex <- function(str, sub) {
-  idx = pystr_rfind(str, sub)
+pystr_rindex <- function(str, sub, start=1, end=nchar(str)) {
+  return(mapply(pystr_rindex_, str, sub, start, end, USE.NAMES=FALSE))
+}
+
+pystr_rindex_ <- function(str, sub, start, end) {
+  idx = pystr_rfind(str, sub, start, end)
 
   if(any(idx < 0)) {
     stop("ValueError")
