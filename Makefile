@@ -1,12 +1,12 @@
 test:
-	/usr/local/bin/Rscript -e 'library(methods);library(testthat);devtools::test();'
+	Rscript -e 'library(methods);library(testthat);devtools::test();'
 
 readme:
-	/usr/local/bin/Rscript -e 'library(knitr);knit("README.Rmd", "README.md");'
+	Rscript -e 'library(knitr);knit("README.Rmd", "README.md");'
 
 cran:
-	rm *.tar.gz
-	/usr/local/bin/Rscript -e 'library(methods);library(testthat);devtools::build(path=".");'
+	-rm *.tar.gz
+	Rscript -e 'library(methods);library(testthat);devtools::build(path=".");'
 	R CMD check --as-cran *.tar.gz
 	rm -rf pystr.Rcheck
 
