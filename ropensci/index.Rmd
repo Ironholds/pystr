@@ -2,6 +2,7 @@
 title: "Python String Methods in R"
 author: Nicole White
 output: ioslides_presentation
+widescreen: true
 ---
 
 ## Agenda
@@ -16,6 +17,7 @@ output: ioslides_presentation
     * Why is it relevant to `pystr`?
     * Example
     * We need your help!
+    * Contribute
 * Conclusion
 
 # Introduction
@@ -179,6 +181,28 @@ s = "The name is {last}. {first} {last}."
 pystr_format(s, first="James", last="Bond")
 ```
 
+## Format using a data.frame | The Bos Rudis Way
+
+```{r}
+cars = head(mtcars)
+cars$name = row.names(cars)
+cars
+```
+
+## Format using a data.frame | The Bos Rudis Way
+
+```{r, echo=FALSE}
+temp = pystr_format("The {name} gets {mpg} miles to the gallon and has {gear} gears.", cars)[, 1]
+```
+
+```{r, eval=FALSE}
+pystr_format("The {name} gets {mpg} miles to the gallon and has {gear} gears.", cars)
+```
+
+```{r, echo=FALSE}
+temp
+```
+
 # Rcpp
 
 ## The beginning
@@ -222,6 +246,13 @@ pystr_count <- function(str, sub, start=1, end=max(nchar(str))) {
 ## We need your help!
 
 ### `github.com/nicolewhite/pystr`
+
+## Contribute
+
+<figure align="center">
+<img src="figure/contributing.png" align="center"  width="100%" height="100%">
+<figcaption>Me navigating base R string operations</figcaption>
+</figure>
 
 # Conclusion
 
