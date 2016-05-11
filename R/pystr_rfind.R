@@ -4,11 +4,11 @@
 #' such that \code{sub} is contained in the slice \code{substr(str, start, end)}.
 #'
 #' @param str A character vector.
-#' @param sub A character string.
-#' @param start An integer.
-#' @param end An integer.
+#' @param sub A character vector.
+#' @param start A numeric vector.
+#' @param end A numeric vector.
 #'
-#' @return A numeric vector. \code{-1} indicates that \code{sub} was not found.
+#' @return A numeric vector. \code{-1} indicates \code{sub} was not found.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.rfind}
 #'
@@ -20,8 +20,8 @@
 #' pystr_rfind("abcxyzabc", "abc", 4)
 #'
 #' @export
-pystr_rfind <- function(str, sub, start=1, end=max(nchar(str))) {
-  return(vapply(str, function(x) pystr_rfind_(x, sub, start=start, end=end), numeric(1), USE.NAMES = FALSE))
+pystr_rfind <- function(str, sub, start=1, end=nchar(str)) {
+  return(mapply(pystr_rfind_, str, sub, start, end, USE.NAMES=FALSE))
 }
 
 pystr_rfind_ <- function(str, sub, start, end) {

@@ -3,12 +3,12 @@
 #' Return the lowest index in the string where substring \code{sub} is found,
 #' such that \code{sub} is contained in the slice \code{substr(str, start, end)}.
 #'
-#' @param str A string.
-#' @param sub A string.
-#' @param start An integer.
-#' @param end An integer.
+#' @param str A character vector.
+#' @param sub A character vector.
+#' @param start A numeric vector.
+#' @param end A numeric vector.
 #'
-#' @return An integer. Returns \code{-1} if \code{sub} is not found.
+#' @return A numeric vector. \code{-1} indicates \code{sub} was not found.
 #'
 #' @references \url{https://docs.python.org/3/library/stdtypes.html#str.find}
 #'
@@ -20,8 +20,8 @@
 #' pystr_find("abcxyzabc", "abc", 4)
 #'
 #' @export
-pystr_find <- function(str, sub, start=1, end=max(nchar(str))) {
-  return(vapply(str, function(x) pystr_find_(x, sub, start=start, end=end), numeric(1), USE.NAMES = FALSE))
+pystr_find <- function(str, sub, start=1, end=nchar(str)) {
+  return(mapply(pystr_find_, str, sub, start, end, USE.NAMES=FALSE))
 }
 
 pystr_find_ <- function(str, sub, start, end) {
