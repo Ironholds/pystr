@@ -15,6 +15,7 @@
 #'
 #' @examples
 #' pystr_rindex("abcxyzabc", "abc")
+#' pystr_rindex("12121212", "12", 4, 6)
 #' \dontrun{
 #' pystr_rindex("abcxyzabc", "123")
 #' }

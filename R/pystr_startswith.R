@@ -3,7 +3,7 @@
 #' Return \code{TRUE} if the string \code{str} starts with the specified
 #' \code{prefix}, otherwise return \code{FALSE}.
 #'
-#' \details
+#' @details
 #' With optional \code{start}, test string beginning at that position.
 #' With optional \code{end}, stop comparing string at that position.
 #'
