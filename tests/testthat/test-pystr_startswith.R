@@ -9,22 +9,6 @@ test_that("it works with a string prefix that's not present", {
   expect_false(pystr_startswith("http://example.com", "https://"))
 })
 
-test_that("it works with a list of prefixes where one is present", {
-  expect_true(pystr_startswith("http://example.com", list("http://", "https://")))
-})
-
-test_that("it works with a list of prefixes where none are present", {
-  expect_false(pystr_startswith("http://example.com", list("www.", "https://")))
-})
-
-test_that("it works with a vector of prefixes where one is present", {
-  expect_true(pystr_startswith("http://example.com", c("http://", "https://")))
-})
-
-test_that("it works with a vector of prefixes where none are present", {
-  expect_false(pystr_startswith("http://example.com", c("www.", "https://")))
-})
-
 test_that("it works with a start and end range", {
   expect_true(pystr_startswith("hello world", "wor", 7))
 })
@@ -39,4 +23,8 @@ test_that("all strings start with an empty string", {
 
 test_that("it works with a character vector", {
   expect_equal(pystr_startswith(c("http://", "https://"), "http://"), c(TRUE, FALSE))
+})
+
+test_that("it works with multiple character vectors", {
+  expect_equal(pystr_startswith(c("http://", "https://"), c("http://", "https://")), c(TRUE, TRUE))
 })

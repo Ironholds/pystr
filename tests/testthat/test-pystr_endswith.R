@@ -9,22 +9,6 @@ test_that("it works with a string suffix that's not present", {
   expect_false(pystr_endswith("selfie.jpg", ".png"))
 })
 
-test_that("it works with a list of suffixes where one is present", {
-  expect_true(pystr_endswith("selfie.jpg", list(".jpg", ".png")))
-})
-
-test_that("it works with a list of suffixes where none are present", {
-  expect_false(pystr_endswith("selfie.jpg", list(".gif", ".png")))
-})
-
-test_that("it works with a vector of suffixes where one is present", {
-  expect_true(pystr_endswith("selfie.jpg", c(".jpg", ".png")))
-})
-
-test_that("it works with a vector of suffixes where none are present", {
-  expect_false(pystr_endswith("selfie.jpg", c(".gif", ".png")))
-})
-
 test_that("it works with a start and end range", {
   expect_true(pystr_endswith("hello world", "ello", 1, 5))
 })
@@ -39,4 +23,8 @@ test_that("all strings end with an empty string", {
 
 test_that("it works with a character vector", {
  expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), ".jpg"), c(TRUE, FALSE))
+})
+
+test_that("it works with multiple character vectors", {
+  expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), c(".jpg", ".png")), c(TRUE, TRUE))
 })
