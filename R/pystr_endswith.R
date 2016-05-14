@@ -25,9 +25,5 @@
 #'
 #' @export
 pystr_endswith <- function(str, suffix, start=1, end=nchar(str)) {
-    if(length(start) < length(end)) {
-      start = rep(start, length(end) / length(start))
-    }
-
     return(pystr_endswith_(str, suffix, start, end))
 }
