@@ -24,14 +24,15 @@
 #' pystr_endswith("hello world", "ello", 1, 5)
 #'
 #' @export
-pystr_endswith <- function(str, suffix, start=1, end=nchar(str)) {
-  return(mapply(pystr_endswith_, str, suffix, start, end, USE.NAMES=FALSE))
-}
-
-pystr_endswith_ <- function(str, suffix, start, end) {
-  string_to_check = substr(str, start, end)
-  start_check = nchar(string_to_check) - nchar(suffix) + 1
-  end_check = nchar(string_to_check)
-  letters_to_check = substr(string_to_check, start_check, end_check)
-  return(letters_to_check == suffix)
+pystr_endswith <- function(str, suffix, start=NULL, end=NULL) {
+  #return(mapply(pystr_endswith_, str, suffix, start, end, USE.NAMES=FALSE))
+  if (is.null(start) && is.null(end)) {
+    return(pystr_endswith_1(str, suffix))
+  } else if (is.null(start)) {
+    return(pystr_endswith_2(str, suffix, end))
+  } else if (is.null(end)) {
+    return(pystr_endswith_3(str, suffix, start))
+  } else {
+    return(pystr_endswith_4(str, suffix, start, end))
+  }
 }

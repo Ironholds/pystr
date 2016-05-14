@@ -22,9 +22,15 @@ test_that("all strings end with an empty string", {
 })
 
 test_that("it works with a character vector", {
- expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), ".jpg"), c(TRUE, FALSE))
+  expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), ".jpg"), c(TRUE, FALSE))
 })
 
 test_that("it works with multiple character vectors", {
   expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), c(".jpg", ".png")), c(TRUE, TRUE))
+})
+
+test_that("it works with an unicode string suffix that's present", {
+  str <- "asfasdjfçlaskdjgçroeij;x.cz,vmsçlrktjskdadsfhkawerljuhb dsrhweqjrhbs.cvmn3iu4yo3u45yojnfbasmdnfbalsdmfn"
+  suffix <- "u45yojnfbasmdnfbalsdmfn"
+  expect_true(pystr_endswith(str, suffix))
 })

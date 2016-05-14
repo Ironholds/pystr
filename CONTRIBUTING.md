@@ -5,7 +5,7 @@ We're moving functions over to C++! We've done the following so far:
 - [x] `pystr_capitalize`
 - [x] `pystr_center`
 - [x] `pystr_count`
-- [ ] `pystr_endswith`
+- [x] `pystr_endswith`
 - [ ] `pystr_find`
 - [ ] `pystr_format`
 - [ ] `pystr_index`

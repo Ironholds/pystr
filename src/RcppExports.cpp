@@ -43,6 +43,58 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_endswith_1
+LogicalVector pystr_endswith_1(CharacterVector inputs, CharacterVector suffixes);
+RcppExport SEXP pystr_pystr_endswith_1(SEXP inputsSEXP, SEXP suffixesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type suffixes(suffixesSEXP);
+    __result = Rcpp::wrap(pystr_endswith_1(inputs, suffixes));
+    return __result;
+END_RCPP
+}
+// pystr_endswith_2
+LogicalVector pystr_endswith_2(CharacterVector inputs, CharacterVector suffixes, int end);
+RcppExport SEXP pystr_pystr_endswith_2(SEXP inputsSEXP, SEXP suffixesSEXP, SEXP endSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type suffixes(suffixesSEXP);
+    Rcpp::traits::input_parameter< int >::type end(endSEXP);
+    __result = Rcpp::wrap(pystr_endswith_2(inputs, suffixes, end));
+    return __result;
+END_RCPP
+}
+// pystr_endswith_3
+LogicalVector pystr_endswith_3(CharacterVector inputs, CharacterVector suffixes, int start);
+RcppExport SEXP pystr_pystr_endswith_3(SEXP inputsSEXP, SEXP suffixesSEXP, SEXP startSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type suffixes(suffixesSEXP);
+    Rcpp::traits::input_parameter< int >::type start(startSEXP);
+    __result = Rcpp::wrap(pystr_endswith_3(inputs, suffixes, start));
+    return __result;
+END_RCPP
+}
+// pystr_endswith_4
+LogicalVector pystr_endswith_4(CharacterVector inputs, CharacterVector suffixes, int start, int end);
+RcppExport SEXP pystr_pystr_endswith_4(SEXP inputsSEXP, SEXP suffixesSEXP, SEXP startSEXP, SEXP endSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type suffixes(suffixesSEXP);
+    Rcpp::traits::input_parameter< int >::type start(startSEXP);
+    Rcpp::traits::input_parameter< int >::type end(endSEXP);
+    __result = Rcpp::wrap(pystr_endswith_4(inputs, suffixes, start, end));
+    return __result;
+END_RCPP
+}
 // pystr_isalnum_
 LogicalVector pystr_isalnum_(CharacterVector strs);
 RcppExport SEXP pystr_pystr_isalnum_(SEXP strsSEXP) {
