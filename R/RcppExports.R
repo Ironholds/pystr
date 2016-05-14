@@ -13,20 +13,8 @@ pystr_count_ <- function(strs, sub, start, end) {
     .Call('pystr_pystr_count_', PACKAGE = 'pystr', strs, sub, start, end)
 }
 
-pystr_endswith_1 <- function(inputs, suffixes) {
-    .Call('pystr_pystr_endswith_1', PACKAGE = 'pystr', inputs, suffixes)
-}
-
-pystr_endswith_2 <- function(inputs, suffixes, end) {
-    .Call('pystr_pystr_endswith_2', PACKAGE = 'pystr', inputs, suffixes, end)
-}
-
-pystr_endswith_3 <- function(inputs, suffixes, start) {
-    .Call('pystr_pystr_endswith_3', PACKAGE = 'pystr', inputs, suffixes, start)
-}
-
-pystr_endswith_4 <- function(inputs, suffixes, start, end) {
-    .Call('pystr_pystr_endswith_4', PACKAGE = 'pystr', inputs, suffixes, start, end)
+pystr_endswith_ <- function(inputs, suffixes, start, end) {
+    .Call('pystr_pystr_endswith_', PACKAGE = 'pystr', inputs, suffixes, start, end)
 }
 
 pystr_isalnum_ <- function(strs) {

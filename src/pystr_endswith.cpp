@@ -1,79 +1,66 @@
 #include <Rcpp.h>
+#include <codecvt>
 
 using namespace Rcpp;
 
-int get_max_size(CharacterVector inputs);
-bool str_endswith(std::string input, std::string suffix, int start, int end);
-LogicalVector pystr_endswith_1(CharacterVector inputs, CharacterVector suffixes);
-LogicalVector pystr_endswith_2(CharacterVector inputs, CharacterVector suffixes, int end);
-LogicalVector pystr_endswith_3(CharacterVector inputs, CharacterVector suffixes, int start);
-LogicalVector pystr_endswith_4(CharacterVector inputs, CharacterVector suffixes,int start, int end);
-
-int get_max_size(CharacterVector inputs) {
-  int max_size = 0;
-  for (int i = 0; i < inputs.size(); i++) {
-    std::string input = Rcpp::as<std::string>(inputs[i]);
-    if (input.size() > max_size) {
-      max_size = input.size();
-    }
-  }
-  return max_size;
+std::wstring utf8_str(std::string s) {
+  std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> cv;
+  std::wstring w = cv.from_bytes(s);
+  return w;
 }
 
 bool str_endswith(std::string input, std::string suffix, int start, int end) {
-  int input_length = input.length();
-  int suffix_length = suffix.length();
+  start--;
+  end--;
+
+  std::wstring input_w = utf8_str(input);
+  std::wstring suffix_w = utf8_str(suffix);
+  int input_length = input_w.length();
+  int suffix_length = suffix_w.length();
+
   if (suffix_length == 0) {
     return true;
   }
-  if (input_length < suffix_length || start > input_length ||
-      end < 1 || start > end) {
+  if (input_length < suffix_length || start > input_length || end < 0 || start > end) {
     return false;
   }
 
-  int _start = start < 1 ? 0 : start - 1;
-  int _end = end > input_length ? input_length - 1 : end - 1;
-  int len = _end - _start + 1 < suffix_length ? _end - _start + 1 : suffix_length;
-  std::string sub_input = input.substr(_end - len + 1, len);
+  int len = end - start + 1 < suffix_length ? end - start + 1 : suffix_length;
 
-  return sub_input == suffix;
+  std::wstring sub_input = input_w.substr(end - len + 1, len);
+  return sub_input == suffix_w;
+}
+
+// This is used to recycle inputs a la mapply.
+// We'll have to use this across the other functions to be consistent.
+int idx(int i, int len) {
+  int j = floor(i / len);
+  return i - (len * j);
 }
 
 // [[Rcpp::export]]
-LogicalVector pystr_endswith_1(CharacterVector inputs, CharacterVector suffixes) {
-  int max_size = get_max_size(inputs);
-  return pystr_endswith_4(inputs, suffixes, 0, max_size);
-}
+LogicalVector pystr_endswith_(CharacterVector inputs,
+                              CharacterVector suffixes,
+                              NumericVector start,
+                              NumericVector end) {
 
-// [[Rcpp::export]]
-LogicalVector pystr_endswith_2(CharacterVector inputs, CharacterVector suffixes, int end) {
-  return pystr_endswith_4(inputs, suffixes, 0, end);
-}
-
-// [[Rcpp::export]]
-LogicalVector pystr_endswith_3(CharacterVector inputs, CharacterVector suffixes, int start) {
-  int max_size = get_max_size(inputs);
-  return pystr_endswith_4(inputs, suffixes, start, max_size);
-}
-
-// [[Rcpp::export]]
-LogicalVector pystr_endswith_4(
-    CharacterVector inputs, CharacterVector suffixes,int start, int end) {
   int inputs_size = inputs.size();
   LogicalVector output(inputs_size);
 
+  int suffix_size = suffixes.size();
+  int start_size = start.size();
+  int end_size = end.size();
+
   for (int i = 0; i < inputs_size; i++) {
     std::string input = Rcpp::as<std::string>(inputs[i]);
+    std::string suffix = Rcpp::as<std::string>(suffixes[idx(i, suffix_size)]);
+    int s = start[idx(i, start_size)];
+    int e = end[idx(i, end_size)];
 
     if (inputs[i] == NA_STRING) {
       output[i] = NA_LOGICAL;
     } else {
-      int j = 0;
-      output[i] = false;
-      while (j < suffixes.length() && !output[i]) {
-        std::string suffix = Rcpp::as<std::string>(suffixes[j++]);
-        output[i] = str_endswith(input, suffix, start, end);
-      }
+      output[i] = str_endswith(input, suffix, s, e);
     }
   }
 

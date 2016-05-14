@@ -29,8 +29,21 @@ test_that("it works with multiple character vectors", {
   expect_equal(pystr_endswith(c("selfie.jpg", "selfie.png"), c(".jpg", ".png")), c(TRUE, TRUE))
 })
 
+test_that("it recycles arguments", {
+ input = c("fdsa.jpg", "fdsa.png", "fdsa.jpg", "fdsa.png")
+ output = rep(TRUE, 4)
+
+ expect_equal(pystr_endswith(input, c(".jpg", ".png")), output)
+})
+
 test_that("it works with an unicode string suffix that's present", {
-  str <- "asfasdjfçlaskdjgçroeij;x.cz,vmsçlrktjskdadsfhkawerljuhb dsrhweqjrhbs.cvmn3iu4yo3u45yojnfbasmdnfbalsdmfn"
-  suffix <- "u45yojnfbasmdnfbalsdmfn"
+  str <- "çlass"
+  suffix <- "ass"
+  expect_true(pystr_endswith(str, suffix))
+})
+
+test_that("it works with a unicode suffix", {
+  str <- "baçk"
+  suffix <- "açk"
   expect_true(pystr_endswith(str, suffix))
 })
