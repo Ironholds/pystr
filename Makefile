@@ -1,3 +1,5 @@
+PKG_CXXFLAGS=-std=c++11
+
 test:
 	Rscript -e 'library(methods);library(testthat);devtools::test();'
 
