@@ -31,7 +31,7 @@ We're moving functions over to C++! We've done the following so far:
 - [x] `pystr_rstrip`
 - [ ] `pystr_split`
 - [ ] `pystr_splitlines`
-- [ ] `pystr_startswith`
+- [x] `pystr_startswith`
 - [ ] `pystr_strip`
 - [ ] `pystr_swapcase`
 - [ ] `pystr_title`
