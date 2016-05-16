@@ -45,3 +45,7 @@ pystr_rstrip_ <- function(strs, chars) {
     .Call('pystr_pystr_rstrip_', PACKAGE = 'pystr', strs, chars)
 }
 
+pystr_startswith_ <- function(inputs, prefixes, start, end) {
+    .Call('pystr_pystr_startswith_', PACKAGE = 'pystr', inputs, prefixes, start, end)
+}
+

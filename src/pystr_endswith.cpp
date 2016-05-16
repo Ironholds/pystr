@@ -1,13 +1,9 @@
 #include <Rcpp.h>
-#include <codecvt>
+
+#include "index_util.h"
+#include "string_util.h"
 
 using namespace Rcpp;
-
-std::wstring utf8_str(std::string s) {
-  std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> cv;
-  std::wstring w = cv.from_bytes(s);
-  return w;
-}
 
 bool str_endswith(std::string input, std::string suffix, int start, int end) {
   start--;
@@ -25,17 +21,10 @@ bool str_endswith(std::string input, std::string suffix, int start, int end) {
     return false;
   }
 
-  int len = end - start + 1 < suffix_length ? end - start + 1 : suffix_length;
+  int len = calculate_length(start, end, suffix_length);
 
   std::wstring sub_input = input_w.substr(end - len + 1, len);
   return sub_input == suffix_w;
-}
-
-// This is used to recycle inputs a la mapply.
-// We'll have to use this across the other functions to be consistent.
-int idx(int i, int len) {
-  int j = floor(i / len);
-  return i - (len * j);
 }
 
 // [[Rcpp::export]]

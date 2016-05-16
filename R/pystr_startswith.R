@@ -25,13 +25,5 @@
 #'
 #' @export
 pystr_startswith <- function(str, prefix, start=1, end=nchar(str)) {
-  return(mapply(pystr_startswith_, str, prefix, start, end, USE.NAMES=FALSE))
-}
-
-pystr_startswith_ <- function(str, prefix, start, end) {
-  string_to_check = substr(str, start, end)
-  start_check = 1
-  end_check = nchar(prefix)
-  letters_to_check = substr(string_to_check, start_check, end_check)
-  return(letters_to_check == prefix)
+  return(pystr_startswith_(str, prefix, start, end))
 }

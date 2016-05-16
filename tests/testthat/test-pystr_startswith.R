@@ -28,3 +28,22 @@ test_that("it works with a character vector", {
 test_that("it works with multiple character vectors", {
   expect_equal(pystr_startswith(c("http://", "https://"), c("http://", "https://")), c(TRUE, TRUE))
 })
+
+test_that("it recycles arguments", {
+ input = c("soccer.jpg", "tennis.jpg", "soccer.png", "tennis.png")
+ output = rep(TRUE, 4)
+
+ expect_equal(pystr_startswith(input, c("soccer", "tennis")), output)
+})
+
+test_that("it works with an unicode string suffix that's present", {
+  str <- "abçläss"
+  prefix <- "ab"
+  expect_true(pystr_startswith(str, prefix))
+})
+
+test_that("it works with a unicode suffix", {
+  str <- "baçäök"
+  prefix <- "baçäö"
+  expect_true(pystr_startswith(str, prefix))
+})

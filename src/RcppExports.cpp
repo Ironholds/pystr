@@ -136,3 +136,17 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_startswith_
+LogicalVector pystr_startswith_(CharacterVector inputs, CharacterVector prefixes, NumericVector start, NumericVector end);
+RcppExport SEXP pystr_pystr_startswith_(SEXP inputsSEXP, SEXP prefixesSEXP, SEXP startSEXP, SEXP endSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type prefixes(prefixesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type start(startSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type end(endSEXP);
+    __result = Rcpp::wrap(pystr_startswith_(inputs, prefixes, start, end));
+    return __result;
+END_RCPP
+}
