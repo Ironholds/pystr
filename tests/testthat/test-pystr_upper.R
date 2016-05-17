@@ -8,3 +8,7 @@ test_that("it converts to lowercase", {
 test_that("it works with a character vector", {
   expect_equal(pystr_upper(c("Hello", "World")), c("HELLO", "WORLD"))
 })
+
+test_that("it works with unicode characters", {
+  expect_equal(pystr_upper(c("çatalhöyük", "Müller")), c("ÇATALHÖYÜK", "MÜLLER"))
+})
