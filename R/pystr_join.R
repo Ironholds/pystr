@@ -20,16 +20,7 @@
 #' @export
 pystr_join <- function(iterable, sep="") {
   if (is.list(iterable)) {
-    if (length(iterable) > 0) {
-      vals = list()
-
-      for (i in 1:length(iterable)) {
-        vals[[i]] = paste(iterable[[i]], collapse=sep)
-      }
-
-      return(vals)
-    }
-    return(list())
+    return(pystr_join_(unlist(iterable), sep))
   }
-  return(paste(iterable, collapse=sep))
+  return(pystr_join_(iterable,  sep))
 }

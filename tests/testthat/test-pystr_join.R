@@ -12,3 +12,7 @@ test_that("it joins strings", {
 test_that("it joins on empty strings by default", {
   expect_equal(pystr_join(c("A", "B", "C")), "ABC")
 })
+
+test_that("it joins unicode strings passing empty separators", {
+  expect_equal(pystr_join(c("D", "E", "F", "Ç"), sep=""), "DEFÇ")
+})

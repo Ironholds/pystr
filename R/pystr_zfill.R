@@ -21,23 +21,5 @@
 #'
 #' @export
 pystr_zfill <- function(str, width) {
-  return(vapply(str, function(x) pystr_zfill_(x, width), character(1), USE.NAMES = FALSE))
-}
-
-pystr_zfill_ <- function(str, width) {
-  if(width <= nchar(str)) {
-    return(str)
-  }
-
-  filled = str
-  first_char = substr(filled, 1, 1)
-
-  if(first_char %in% c("-", "+")) {
-    filled = substr(filled, 2, nchar(filled))
-  } else {
-    first_char = ""
-  }
-
-  zeros = pystr_join(rep(0, width - nchar(str)), "")
-  return(pystr_join(c(first_char, zeros, filled), ""))
+  return(pystr_zfill_(str, width))
 }

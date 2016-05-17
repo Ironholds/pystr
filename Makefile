@@ -1,4 +1,4 @@
-PKG_CXXFLAGS=-std=c++11
+PKG_CXXFLAGS=-std=c++0x
 
 test:
 	Rscript -e 'library(methods);library(testthat);devtools::test();'

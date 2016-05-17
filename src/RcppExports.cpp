@@ -112,6 +112,18 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_join_
+std::string pystr_join_(CharacterVector input, std::string separator);
+RcppExport SEXP pystr_pystr_join_(SEXP inputSEXP, SEXP separatorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type input(inputSEXP);
+    Rcpp::traits::input_parameter< std::string >::type separator(separatorSEXP);
+    __result = Rcpp::wrap(pystr_join_(input, separator));
+    return __result;
+END_RCPP
+}
 // pystr_lstrip_
 CharacterVector pystr_lstrip_(CharacterVector strs, std::string chars);
 RcppExport SEXP pystr_pystr_lstrip_(SEXP strsSEXP, SEXP charsSEXP) {
@@ -147,6 +159,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericVector >::type start(startSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type end(endSEXP);
     __result = Rcpp::wrap(pystr_startswith_(inputs, prefixes, start, end));
+    return __result;
+END_RCPP
+}
+// pystr_zfill_
+CharacterVector pystr_zfill_(CharacterVector inputs, int width);
+RcppExport SEXP pystr_pystr_zfill_(SEXP inputsSEXP, SEXP widthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< int >::type width(widthSEXP);
+    __result = Rcpp::wrap(pystr_zfill_(inputs, width));
     return __result;
 END_RCPP
 }

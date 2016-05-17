@@ -37,6 +37,10 @@ pystr_isupper_ <- function(strs) {
     .Call('pystr_pystr_isupper_', PACKAGE = 'pystr', strs)
 }
 
+pystr_join_ <- function(input, separator) {
+    .Call('pystr_pystr_join_', PACKAGE = 'pystr', input, separator)
+}
+
 pystr_lstrip_ <- function(strs, chars) {
     .Call('pystr_pystr_lstrip_', PACKAGE = 'pystr', strs, chars)
 }
@@ -47,5 +51,9 @@ pystr_rstrip_ <- function(strs, chars) {
 
 pystr_startswith_ <- function(inputs, prefixes, start, end) {
     .Call('pystr_pystr_startswith_', PACKAGE = 'pystr', inputs, prefixes, start, end)
+}
+
+pystr_zfill_ <- function(inputs, width) {
+    .Call('pystr_pystr_zfill_', PACKAGE = 'pystr', inputs, width)
 }
 
