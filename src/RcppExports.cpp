@@ -57,6 +57,20 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// pystr_find_
+IntegerVector pystr_find_(CharacterVector inputs, CharacterVector subs, IntegerVector starts, IntegerVector ends);
+RcppExport SEXP pystr_pystr_find_(SEXP inputsSEXP, SEXP subsSEXP, SEXP startsSEXP, SEXP endsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type inputs(inputsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type subs(subsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type starts(startsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type ends(endsSEXP);
+    __result = Rcpp::wrap(pystr_find_(inputs, subs, starts, ends));
+    return __result;
+END_RCPP
+}
 // pystr_isalnum_
 LogicalVector pystr_isalnum_(CharacterVector strs);
 RcppExport SEXP pystr_pystr_isalnum_(SEXP strsSEXP) {

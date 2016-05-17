@@ -17,6 +17,10 @@ pystr_endswith_ <- function(inputs, suffixes, start, end) {
     .Call('pystr_pystr_endswith_', PACKAGE = 'pystr', inputs, suffixes, start, end)
 }
 
+pystr_find_ <- function(inputs, subs, starts, ends) {
+    .Call('pystr_pystr_find_', PACKAGE = 'pystr', inputs, subs, starts, ends)
+}
+
 pystr_isalnum_ <- function(strs) {
     .Call('pystr_pystr_isalnum_', PACKAGE = 'pystr', strs)
 }

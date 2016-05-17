@@ -21,21 +21,5 @@
 #'
 #' @export
 pystr_find <- function(str, sub, start=1, end=nchar(str)) {
-  return(mapply(pystr_find_, str, sub, start, end, USE.NAMES=FALSE))
-}
-
-pystr_find_ <- function(str, sub, start, end) {
-  string_to_check = substr(str, start, end)
-
-  for(i in 1:nchar(string_to_check)) {
-    start_check = i
-    end_check = i + nchar(sub) - 1
-    letters_to_check = substr(string_to_check, start_check, end_check)
-
-    if(letters_to_check == sub) {
-      return(start_check + start - 1)
-    }
-  }
-
-  return(-1)
+  return(pystr_find_(str, sub, start, end))
 }
